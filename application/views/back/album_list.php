@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Carts24X7 | Category List</title>
+        <title>Music | Album List</title>
 
         <!-- Bootstrap -->
         <link href="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
                     <div class="">
                         <div class="page-title">
                             <div class="title_left">
-                                <h3>Package List</h3>
+                                <h3>Album List</h3>
 
                             </div>
 
@@ -59,48 +59,29 @@
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li><a href="<?php echo base_url() ?>index.php/admin/package/add" class="close-link"><i class="fa fa-plus"></i> Add Package</a></li>
-                                </ul>
+                               
                                 <div class="x_content">
 
                                     <table id="datatable-buttons" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Sno</th>
-                                                <th>Name</th>
-                                                <th>Duration</th>
-                                                <th>price</th>
-                                                <th>Description</th>
-                                                <th>Name1</th>
-                                                <th>Name2</th>
-                                                <th>Value1</th>
-                                                <th>Value2</th>
-                                                <th>Image</th>
+                                                <th>#</th>
+                                                <th>Artist Name</th>
+                                                <th>Album Name</th>
                                                 
-                                                <th>Action</th>
-
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                           
-                                                <tr>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td><test</td>
-                                                    <td><img class="img-sm" style=" width:150px;" src="" /> </td>
-                                                    
-                                                    <td>test</td>
-
-                                                </tr>
                                             
+                                            <?php $i = 1;
+                                            foreach($getAlbums as $allAlbums){ ?>
+                                                <tr>
+                                                    <td><?php echo $i++; ?></td>
+                                                    <td><?php echo $allAlbums['artist_name']; ?></td>
+                                                    <td><?php echo $allAlbums['album_name']; ?></td>
+                                                </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>

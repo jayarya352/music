@@ -23,13 +23,28 @@
                   <li><a href="<?php echo base_url(); ?>index.php/admin"><i class="fa fa-dashboard"></i> Dashboard </a>
                    
                   </li>
-                  <li><a><i class="fa fa-star"></i> Category <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-star"></i> Album <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url(); ?>index.php/admin/category/list">Category List</a></li>
-                      <li><a href="<?php echo base_url(); ?>index.php/admin/subcategory/list">Sub-Category List</a></li>
+                      <li><a href="<?php echo base_url(); ?>index.php/admin/album">Add Album</a></li>
+                      <li><a href="<?php echo base_url(); ?>index.php/admin/albumList">Album List</a></li>
                     </ul>
                   </li>
-          <li><a href="<?php echo base_url(); ?>index.php/admin/blog/list"><i class="fa fa-star"></i> Manage blog </a></li>
+
+                  <li><a><i class="fa fa-star"></i> Artist <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?php echo base_url(); ?>index.php/admin/artist">Add Artist</a></li>
+                      <li><a href="<?php echo base_url(); ?>index.php/admin/artistList">Artist List</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-star"></i> Songs <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?php echo base_url(); ?>index.php/admin/song">Add Song</a></li>
+                      <li><a href="<?php echo base_url(); ?>index.php/admin/artistList">Artist List</a></li>
+                    </ul>
+                  </li>
+
+          <li><a href="<?php echo base_url(); ?>index.php/admin/userlist"><i class="fa fa-star"></i> User List </a></li>
 				  <li><a href="<?php echo base_url(); ?>index.php/admin/product/list"><i class="fa fa-star"></i> Product List </a></li>
 				  <li><a href="<?php echo base_url(); ?>admin/content/list"><i class="fa fa-star"></i> Manage Content </a></li>
 				  <li><a href="<?php echo base_url(); ?>admin/coupon/list"><i class="fa fa-star"></i> Manage Coupon </a></li>

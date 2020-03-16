@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Carts24X7 | Category List</title>
+        <title>Music | User List</title>
 
         <!-- Bootstrap -->
         <link href="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
                     <div class="">
                         <div class="page-title">
                             <div class="title_left">
-                                <h3>Package List</h3>
+                                <h3>User List</h3>
 
                             </div>
 
@@ -59,9 +59,7 @@
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li><a href="<?php echo base_url() ?>index.php/admin/package/add" class="close-link"><i class="fa fa-plus"></i> Add Package</a></li>
-                                </ul>
+                               
                                 <div class="x_content">
 
                                     <table id="datatable-buttons" class="table table-striped table-bordered">
@@ -69,38 +67,30 @@
                                             <tr>
                                                 <th>Sno</th>
                                                 <th>Name</th>
-                                                <th>Duration</th>
-                                                <th>price</th>
-                                                <th>Description</th>
-                                                <th>Name1</th>
-                                                <th>Name2</th>
-                                                <th>Value1</th>
-                                                <th>Value2</th>
-                                                <th>Image</th>
-                                                
+                                                <th>Email</th>
+                                                <th>Contact</th>
+                                                <th>Gender</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
                                                 <th>Action</th>
-
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                           
-                                                <tr>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td>test</td>
-                                                    <td><test</td>
-                                                    <td><img class="img-sm" style=" width:150px;" src="" /> </td>
-                                                    
-                                                    <td>test</td>
-
-                                                </tr>
                                             
+                                            <?php $i = 1;
+                                            foreach($getUserList as $allUsers){ ?>
+                                                <tr>
+                                                    <td><?php echo $i++; ?></td>
+                                                    <td><?php echo $allUsers['name']; ?></td>
+                                                    <td><?php echo $allUsers['email']; ?></td>
+                                                    <td><?php echo $allUsers['phone']; ?></td>
+                                                    <td><?php echo $allUsers['gender']; ?></td>
+                                                    <td><?php echo $allUsers['date_added']; ?></td>
+                                                    <td style="color:<?php echo $allUsers['isActive'] == 1 ? 'green' : 'red'; ?>"><?php echo $allUsers['isActive'] == 1 ? 'Enable' : 'Disable'; ?></td>
+                                                    <td><a href="<?php echo base_url(); ?>index.php/admin/editUser/<?php echo $allUsers['id']; ?>">Edit</a></td>
+                                                </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
