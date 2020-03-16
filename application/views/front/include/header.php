@@ -1,101 +1,226 @@
-<!-- Favicon -->
-<link rel="icon" href="<?php echo base_url(); ?>assets/img/core-img/favicon.ico">
+<header id="header" class="bg-primary">
 
-<!-- Stylesheet -->
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
-<!-- <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css.map"> -->
+<div class="d-flex align-items-center">
 
-<header class="header-area">
-        <!-- Navbar Area -->
-        <div class="oneMusic-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
-                    <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="oneMusicNav">
+    <button type="button" class="btn toggle-menu mr-3" id="openSidebar">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
-                        <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="<?php echo base_url(); ?>assets/img/core-img/logo.png" alt=""></a>
+    <form action="#" id="searchForm">
 
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+        <button type="button" class="btn ion-ios-search"></button>
+        <input type="text" placeholder="Search..." id="searchInput" class="form-control">
+
+        <!-- Begin | Search Card [[ Find at scss/framework/base/search/search.scss ]] -->
+        <div class="search-card" data-scrollable="true">
+            <!-- Begin | Search Result List -->
+            <div class="mb-3">
+                <!-- Begin | Search Result List Header -->
+                <div class="d-flex">
+                    <span class="text-uppercase mr-auto font-weight-bold text-dark">Artists</span>
+                    <a href="artists.html">View All</a>
+                </div>
+                <!-- End | Search Result List Header -->
+                <hr>
+                <!-- Begin | Result List -->
+                <div class="row">
+                    <div class="col-xl-2 col-md-4 col-6">
+                        <div class="custom-card mb-3">
+                            <a href="artist-details.html" class="text-dark">
+                                <img src="<?php echo base_url();  ?>assets/images/cover/medium/1.jpg" alt="" class="card-img--radius-md">
+                                <p class="text-truncate mt-2">Arebica Luna</p>
+                            </a>
                         </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4 col-6">
+                        <div class="custom-card mb-3">
+                            <a href="artist-details.html" class="text-dark">
+                                <img src="<?php echo base_url();  ?>assets/images/cover/medium/2.jpg" alt="" class="card-img--radius-md">
+                                <p class="text-truncate mt-2">Gerrina Linda</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4 col-6">
+                        <div class="custom-card mb-3">
+                            <a href="artist-details.html" class="text-dark">
+                                <img src="<?php echo base_url();  ?>assets/images/cover/medium/3.jpg" alt="" class="card-img--radius-md">
+                                <p class="text-truncate mt-2">Zunira Willy</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4 col-6">
+                        <div class="custom-card mb-3">
+                            <a href="artist-details.html" class="text-dark">
+                                <img src="<?php echo base_url();  ?>assets/images/cover/medium/4.jpg" alt="" class="card-img--radius-md">
+                                <p class="text-truncate mt-2">Johnny Marro</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4 col-6">
+                        <div class="custom-card mb-3">
+                            <a href="artist-details.html" class="text-dark">
+                                <img src="<?php echo base_url();  ?>assets/images/cover/medium/5.jpg" alt="" class="card-img--radius-md">
+                                <p class="text-truncate mt-2">Jina Moore</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4 col-6">
+                        <div class="custom-card mb-3">
+                            <a href="artist-details.html" class="text-dark">
+                                <img src="<?php echo base_url();  ?>assets/images/cover/medium/6.jpg" alt="" class="card-img--radius-md">
+                                <p class="text-truncate mt-2">Rasomi Pelina</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End | Result List -->
+            </div>
+            <!-- End | Search Result List -->
 
-                        <!-- Menu -->
-                        <div class="classy-menu">
-
-                            <!-- Close Button -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li><a href="<?php echo base_url();?>index.php/home/index">Home</a></li>
-                                    <li><a href="<?php echo base_url();?>index.php/home/albums">Albums</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="<?php echo base_url();?>index.php/home/index">Home</a></li>
-                                            <li><a href="<?php echo base_url();?>index.php/home/albums">Albums</a></li>
-                                            <li><a href="<?php echo base_url();?>index.php/home/events">Events</a></li>
-                                            <li><a href="blog.html">News</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="#">Dropdown</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a>
-                                                        <ul class="dropdown">
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="<?php echo base_url();?>index.php/home/newReleasesong">New Release</a></li>
-                                    <li><a href="<?php echo base_url(); ?>index.php/home/blog">News</a></li>
-                                    <li><a href="<?php echo base_url(); ?>index.php/home/contact">Contact</a></li>
-                                </ul>
-
-                                <!-- Login/Register & Cart Button -->
-                                <div class="login-register-cart-button d-flex align-items-center">
-                                    <!-- Login/Register -->
-                                    <?php 
-                                        
-                                        
-                                        if($this->session->userdata('userDetail')){?>   
-                                         <div class="login-register-btn mr-50">
-                                        <a href="<?php echo base_url();?>index.php/home/myAccount" id="loginBtn">My Account </a>||<a href="<?php echo base_url();?>index.php/login/logout" id="logoutBtn">Logout </a>
-                                        
-                                         </div>
-                                        <?php } else {?>
-                                    <div class="login-register-btn mr-50">
-                                        <a href="<?php echo base_url(); ?>index.php/home/login_page" id="loginBtn">Login </a> ||
-                                        <a href="<?php echo base_url(); ?>index.php/home/register_page" id="loginBtn">Register</a>
-                                    </div>
-                                        <?php  } ?>
-
-                                    <!-- Cart Button -->
-                                    <div class="cart-btn">
-                                        <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
-                                    </div>
+            <!-- Begin | Search Result List -->
+            <div class="mb-3">
+                <!-- Begin | Search Result List Header -->
+                <div class="d-flex">
+                    <span class="text-uppercase mr-auto font-weight-bold text-dark">Track</span>
+                    <a href="songs.html">View All</a>
+                </div>
+                <!-- End | Search Result List Header -->
+                <hr>
+                <!-- Begin | Result List -->
+                <div class="row">
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <div class="custom-card mb-3">
+                            <a href="song-details.html" class="text-dark custom-card--inline">
+                                <div class="custom-card--inline-img">
+                                    <img src="<?php echo base_url();  ?>assets/images/cover/small/1.jpg" alt="" class="card-img--radius-sm">
                                 </div>
-                            </div>
-                            <!-- Nav End -->
 
+                                <div class="custom-card--inline-desc">
+                                    <p class="text-truncate mb-0">I Love You Mummy</p>
+                                    <p class="text-truncate text-muted font-sm">Arebica Luna</p>
+                                </div>
+                            </a>
                         </div>
-                    </nav>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <div class="custom-card mb-3">
+                            <a href="song-details.html" class="text-dark custom-card--inline">
+                                <div class="custom-card--inline-img">
+                                    <img src="<?php echo base_url();  ?>assets/images/cover/small/2.jpg" alt="" class="card-img--radius-sm">
+                                </div>
+
+                                <div class="custom-card--inline-desc">
+                                    <p class="text-truncate mb-0">Shack your butty</p>
+                                    <p class="text-truncate text-muted font-sm">Gerrina Linda</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <div class="custom-card mb-3">
+                            <a href="song-details.html" class="text-dark custom-card--inline">
+                                <div class="custom-card--inline-img">
+                                    <img src="<?php echo base_url();  ?>assets/images/cover/small/3.jpg" alt="" class="card-img--radius-sm">
+                                </div>
+
+                                <div class="custom-card--inline-desc">
+                                    <p class="text-truncate mb-0">Do it your way(Female)</p>
+                                    <p class="text-truncate text-muted font-sm">Zunira Willy & Nutty Nina</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End | Result List -->
+            </div>
+            <!-- End | Search Result List -->
+
+            <!-- Begin | Search Result List -->
+            <div>
+                <!-- Begin | Search Result List Header -->
+                <div class="d-flex">
+                    <span class="text-uppercase mr-auto font-weight-bold text-dark">Albums</span>
+                    <a href="songs.html">View All</a>
+                </div>
+                <!-- End | Search Result List Header -->
+                <hr>
+                <!-- Begin | Result List -->
+                <div class="row">
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <div class="custom-card mb-3">
+                            <a href="song-details.html" class="text-dark custom-card--inline">
+                                <div class="custom-card--inline-img">
+                                    <img src="<?php echo base_url();  ?>assets/images/cover/small/4.jpg" alt="" class="card-img--radius-sm">
+                                </div>
+
+                                <div class="custom-card--inline-desc">
+                                    <p class="text-truncate mb-0">Say yes</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <div class="custom-card mb-3">
+                            <a href="song-details.html" class="text-dark custom-card--inline">
+                                <div class="custom-card--inline-img">
+                                    <img src="<?php echo base_url();  ?>assets/images/cover/small/5.jpg" alt="" class="card-img--radius-sm">
+                                </div>
+
+                                <div class="custom-card--inline-desc">
+                                    <p class="text-truncate mb-0">Where is your letter</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-12">
+                        <div class="custom-card mb-3">
+                            <a href="song-details.html" class="text-dark custom-card--inline">
+                                <div class="custom-card--inline-img">
+                                    <img src="<?php echo base_url();  ?>assets/images/cover/small/6.jpg" alt="" class="card-img--radius-sm">
+                                </div>
+
+                                <div class="custom-card--inline-desc">
+                                    <p class="text-truncate mb-0">Hey not me</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End | Result List -->
+            </div>
+            <!-- End | Search Result List -->
+        </div>
+        <!-- End | Search Card -->
+
+    </form>
+
+    <!-- Begin | Header Options -->
+    <ul class="header-options d-flex align-items-center">
+        <li>
+            <a href="javascript:void(0);" data-toggle="modal" data-target="#lang" class="language">
+                <span>Language</span>
+                <img src="<?php echo base_url();  ?>assets/images/svg/translate.svg" alt="">
+            </a>
+        </li>
+        <li class="dropdown fade-in">
+            <a href="javascript:void(0);" class="d-flex align-items-center py-2" role="button" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="avatar avatar-sm avatar-circle"><img src="<?php echo base_url();  ?>assets/images/users/thumb.jpg" alt="user"></div>
+                <span class="pl-2">Halo Admin</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                <a class="dropdown-item" href="profile.html"><i class="ion-md-contact"></i> <span>Profile</span></a>
+                <a class="dropdown-item" href="plan.html"><i class="ion-md-radio-button-off"></i> <span>Your Plan</span></a>
+                <a class="dropdown-item" href="settings.html"><i class="ion-md-settings"></i> <span>Settings</span></a>
+                <div class="dropdown-divider"></div>
+                <div class="px-4 py-2">
+                    <a href="#" class="btn btn-sm btn-air btn-pill btn-danger">Logout</a>
                 </div>
             </div>
-        </div>
-    </header>
+        </li>
+    </ul>
+    <!-- End | Header Options -->
+</div>
+
+</header>

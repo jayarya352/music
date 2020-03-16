@@ -81,7 +81,10 @@ class Home extends CI_Controller {
 	function blank(){ 
 		$this->load->view('front/blank');
 	}
-	
 
+	function events(){ 
+		$this->load->view('front/events');
+	}
+	
 
 }
