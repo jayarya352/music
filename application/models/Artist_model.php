@@ -3,7 +3,11 @@
 class Artist_model extends CI_Model {
     
     public function saveArtist($data){ 
-        $query = $this->db->query("insert into artists (name) values ('".$data['artist_name']."') ");
+        $artist_data = array(
+            "name" => $data['artist_name'],
+        );
+        $this->db->insert('artists',$artist_data);
+        
         return true;
     }
 

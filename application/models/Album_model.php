@@ -3,8 +3,11 @@
 class Album_model extends CI_Model {
     
     public function saveAlbum($data){ 
-        // echo "insert into albums (artist_id, name) values ('".$data['artists']."','".$this->db->escape($data['album_name'])."')"; die;
-        $query = $this->db->query("insert into albums (artist_id, name) values ('".$data['artists']."','". $this->db->escape($data['album_name']) ."') ");
+        $album_data = array(
+            "artist_id" => $data['artists'],
+            "name" => $data['album_name']
+        );
+        $this->db->insert('albums',$album_data);
         return true;
     }
 

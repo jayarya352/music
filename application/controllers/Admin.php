@@ -1,5 +1,4 @@
 <?php
-
 // session_start();
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
@@ -16,6 +15,7 @@ class Admin extends CI_Controller {
         $this->load->model('User_model');
         $this->load->model('Artist_model');
         $this->load->model('Album_model');
+        $this->load->model('Song_model');
         $this->load->helper('url');
 		$this->load->helper('form');
     }
@@ -203,34 +203,26 @@ class Admin extends CI_Controller {
     }
 
     function addSong(){
+        $post_data = $this->input->post();
+        
         // echo base_url(); die;
         $config['upload_path']          =  './uploads/';
         $config['allowed_types']        = 'gif|jpg|png|jpeg|mp3';
-        $config['max_size']             = 100;
+        $config['max_size']             = '10000';
         $this->upload->initialize($config);
         $this->load->library('upload', $config);
-        $this->upload->do_upload('song_file');
 
-
-        if (!$this->upload->do_upload('song_file'))
-        {
+        if (!$this->upload->do_upload('song_file')) {
             $error = array('error' => $this->upload->display_errors());
-
-            // echo "<pre>"; print_R($error); die;
-
-            // $this->load->view('upload', $error);
+            print_r($error); 
         }
-        else
-        {
+        else {
             $data = array('upload_data' => $this->upload->data());
             
+            $up_audio=$data['upload_data']['full_path'];
+            $post_data['song_file'] = $up_audio;
+            $this->Song_model->songInsertdata($post_data);
         }
-        // $up_file = $this->upload->data();
-        // $up_audio=$up_file['file_name'];
-        // $data = array("song_file"=>$up_audio);
-
-        
-        // $this->Model->songInsertdata($data);
     }
 
     function package($para1 = '', $para2 = '', $para3 = '') {
