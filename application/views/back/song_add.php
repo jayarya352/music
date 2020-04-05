@@ -56,7 +56,20 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel">
-                                    
+                                <?php if($this->session->flashdata('success')){ ?>
+                                    <div class="alert alert-success">
+                                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                        <strong>Success!</strong> <?php echo $this->session->flashdata('success'); ?>
+                                    </div> 
+                                    <?php } ?>
+
+                                    <?php if($this->session->flashdata('error')){ ?>
+                                    <div class="alert alert-danger">
+                                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                        <strong>Error!</strong> <?php echo $this->session->flashdata('error'); ?>
+                                    </div> 
+                                    <?php } ?>
+
                                     <div class="x_content">
                                         <br />
 
@@ -101,6 +114,14 @@
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
 
                                                     <input type="file" class="form-control col-md-7 col-xs-12" name="song_file" value="" >
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Upload Thumbnail </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                                    <input type="file" class="form-control col-md-7 col-xs-12" name="thumbnail_file" value="" >
                                                 </div>
                                             </div>
                                             

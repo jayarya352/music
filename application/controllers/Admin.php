@@ -17,7 +17,9 @@ class Admin extends CI_Controller {
         $this->load->model('Album_model');
         $this->load->model('Song_model');
         $this->load->helper('url');
-		$this->load->helper('form');
+        $this->load->helper('form');
+        $this->load->library('image_lib');
+        $this->load->library('session'); 
     }
 
     /* index of the vadmin. Default: Dashboard; On No Login Session: Back to login page. */
@@ -205,24 +207,105 @@ class Admin extends CI_Controller {
     function addSong(){
         $post_data = $this->input->post();
         
-        // echo base_url(); die;
-        $config['upload_path']          =  './uploads/';
+        $config['upload_path']          =  './assets/songs/';
         $config['allowed_types']        = 'gif|jpg|png|jpeg|mp3';
         $config['max_size']             = '10000';
+
+        // =========********make directories if not exists********==========
+        if (!is_dir('./assets/songs/')) {
+            mkdir('./assets/songs/', 0777, TRUE);
+        }
+        if (!is_dir('./assets/thumbnail/original')) {
+            mkdir('./assets/thumbnail/original', 0777, TRUE);
+        }
+        if (!is_dir('./assets/thumbnail/320X320')) {
+            mkdir('./assets/thumbnail/320X320', 0777, TRUE);
+        }
+        if (!is_dir('./assets/thumbnail/128X128')) {
+            mkdir('./assets/thumbnail/128X128', 0777, TRUE);
+        }
+        // =========********end make directories if not exists********==========
+
         $this->upload->initialize($config);
         $this->load->library('upload', $config);
 
+        // ******* showing error if exists ******* //
         if (!$this->upload->do_upload('song_file')) {
             $error = array('error' => $this->upload->display_errors());
-            print_r($error); 
+            $this->session->set_flashdata('error',$error['error']);
+            redirect(base_url() . "index.php/admin/song");
         }
         else {
             $data = array('upload_data' => $this->upload->data());
+            $songPath = $data['upload_data']['full_path'];
+
+            // ******** upload original thumbnail image ********* //
+            $config['upload_path']          = './assets/thumbnail/original';
+            $config['allowed_types']        = 'gif|jpg|png|jpeg';
+            $config['max_size']             = '1000';
+
             
-            $up_audio=$data['upload_data']['full_path'];
-            $post_data['song_file'] = $up_audio;
-            $this->Song_model->songInsertdata($post_data);
+            $this->upload->initialize($config);
+            if (!$this->upload->do_upload('thumbnail_file')) {
+                $error = array('error' => $this->upload->display_errors());
+                
+                $this->session->set_flashdata('error',$error['error']);
+                redirect(base_url() . "index.php/admin/song");
+            } else {
+                
+                $data = array('upload_thubmnail_data' => $this->upload->data());
+                
+                // store image with 320 X 320 size.
+                $resize['create_thumb'] = 'gd2';
+                $resize['source_image'] = $data['upload_thubmnail_data']['full_path'];
+                $resize['new_image'] =  './assets/thumbnail/320X320';
+                $resize['maintain_ratio']       = TRUE;
+                $resize['width']                = 320;
+                $resize['height']               = 320;
+                $this->image_lib->clear();
+                $this->image_lib->initialize($resize);
+                $this->image_lib->resize();
+
+                // ********* get resize image path ******** //
+                $thumbnail = $data['upload_thubmnail_data']['raw_name'].'_thumb'.$data['upload_thubmnail_data']['file_ext'];
+                $basename = basename($data['upload_thubmnail_data']['file_path']);
+                $thumbnail_320X320 = str_replace($basename,'320X320',$data['upload_thubmnail_data']['file_path']);
+                $thumbnail_320X320_path = $thumbnail_320X320.$thumbnail;
+                $post_data['thumbnail_320X320'] = $thumbnail_320X320_path;
+                // ********* end get resize image path ******** //
+
+                
+                // store image with 128 X 128 size.
+                $resize['create_thumb'] = 'gd2';
+                $resize['source_image'] = $data['upload_thubmnail_data']['full_path'];
+                $resize['new_image'] =  './assets/thumbnail/128X128';
+                $resize['maintain_ratio']       = TRUE;
+                $resize['width']                = 128;
+                $resize['height']               = 128;
+                $this->image_lib->clear();
+                $this->image_lib->initialize($resize);
+                $this->image_lib->resize();
+
+                // ********* get resize image path ******** //
+                $thumbnail = $data['upload_thubmnail_data']['raw_name'].'_thumb'.$data['upload_thubmnail_data']['file_ext'];
+                $basename = basename($data['upload_thubmnail_data']['file_path']);
+                $thumbnail_128X128 = str_replace($basename,'128X128',$data['upload_thubmnail_data']['file_path']);
+                $thumbnail_128X128_path = $thumbnail_128X128.$thumbnail;
+                $post_data['thumbnail_128X128'] = $thumbnail_128X128_path;
+                // ********* end get resize image path ******** //
+
+                // ******* save song details and thumbnail in db ******* //
+                $up_audio = $songPath;
+                $post_data['song_file'] = $up_audio;
+                $this->Song_model->songInsertdata($post_data);
+                $this->session->set_flashdata('success', 'Song details save successfully...');
+                redirect(base_url() . "index.php/admin/song");
+                // ******* end save song details and thumbnail in db ******* //
+            }
         }
+        
+        
+
     }
 
     function package($para1 = '', $para2 = '', $para3 = '') {
