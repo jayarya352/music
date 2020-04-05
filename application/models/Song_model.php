@@ -14,4 +14,15 @@ class Song_model extends CI_Model {
         $this->db->insert('songs',$song_data);
         return true;
     }
+
+    public function getAllsong() {  //this query user for get song data..
+        // $this->db->where('status','pending'); 
+        $query=$this->db->get('songs'); 
+        return $query->result_array(); }
+
+    public function getAllsong_detail($song_id) {  //this query user for get song details..
+        $this->db->where('id',$song_id); 
+        $query=$this->db->get('songs'); 
+        return $query->result_array(); }
+    
 }

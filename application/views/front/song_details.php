@@ -331,12 +331,14 @@
         <div class="main-container" id="appRoute">
             <div class="row section text-center text-md-left">
                 <div class="col-xl-3 col-lg-4 col-sm-5">
-                    <img src="<?php echo base_url();  ?>assets/images/cover/large/2.jpg" alt="" class="card-img--radius-lg">
+                <?php foreach($songDetail as $song_detail) ?>
+                    
+                    <img src="<?php echo base_url();  ?>uploads/<?php echo $song_detail['thumbnail_320X320']; ?>" alt="" class="card-img--radius-lg">
                 </div>
                 <div class="col-xl-9 col-lg-8 col-sm-7">
                     <div class="row pt-4">
                         <div class="col-xl-8 col-lg-6">
-                            <h5>Shack your butty</h5>
+                            <h5><?php echo $song_detail['name']; ?></h5>
                             <p>Gerrina Linda</p>
                             <div class="text-warning stars">
                                 <i class="la la-star"></i>
@@ -347,7 +349,7 @@
                             </div>
                             <span class="badge badge-pill badge-warning mt-3">Premium</span>
                             <div class="mt-4">
-                                <a href="javascript:void(0);" class="btn btn-pill btn-air btn-bold btn-danger external" data-audio='{"name": "Shack your butty", "artist": "Gerrina Linda", "album": "Hot Shot", "url": "<?php echo base_url();  ?>assets/audio/ringtone-2.mp3", "cover_art_url": "<?php echo base_url();  ?>assets/images/cover/small/2.jpg"}'>Play</a>
+                                <a href="javascript:void(0);" class="btn btn-pill btn-air btn-bold btn-danger external" data-audio='{"name": "<?php echo $song_detail['name']; ?>", "artist": "Gerrina Linda", "album": "Hot Shot", "url": "<?php echo base_url();  ?>uploads/<?php echo $song_detail['filename']; ?>", "cover_art_url": "<?php echo base_url();  ?>uploads/<?php echo $song_detail['thumbnail_128X128']; ?>"}'>Play</a>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-6">

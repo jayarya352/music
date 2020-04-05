@@ -50,5 +50,7 @@ class User_model extends CI_Model {
         $query = $this->db->query("update users set isActive = '".(int)$userData['status']."' where id='".(int)$userData['hiddenuserid']."' ");
         return true;
     }
+
+    
     
 }

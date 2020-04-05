@@ -9,13 +9,15 @@ class Home extends CI_Controller {
 		$this->load->helper();
 		$this->load->library('session');
 		$this->load->model('User_model');
+		$this->load->model('Song_model');
 
 	}
 
 	public function index()
 	{
+		$data['all_song']=$this->Song_model->getAllsong();  //this function use for ger all song...
+		$this->load->view('front/index',$data);
 		
-		$this->load->view('front/index');
 	}
 
 	function artist_details(){ 
@@ -26,12 +28,15 @@ class Home extends CI_Controller {
 		$this->load->view('front/stations');
 	}
 
-	function song_details(){ 
-		$this->load->view('front/song_details');
+	function song_details($para1='',$para2=''){ 
+		$song_detail['songDetail']=$this->Song_model->getAllsong_detail($para1);
+		// echo $song_detail->id; die;
+		$this->load->view('front/song_details',$song_detail);
 	}
 
 	function songs(){ 
-		$this->load->view('front/songs');
+		$data['all_song']=$this->Song_model->getAllsong();
+		$this->load->view('front/songs',$data);
 	}
 
 	function error(){ 
@@ -85,6 +90,14 @@ class Home extends CI_Controller {
 	function events(){ 
 		$this->load->view('front/events');
 	}
+
 	
+	function settings(){ 
+		$this->load->view('front/settings');
+	}
+	
+	function plan(){ 
+		$this->load->view('front/plan');
+	}
 
 }
