@@ -15,7 +15,6 @@ class User_model extends CI_Model {
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => $data['password'],
-                'address' => $data['address']
             ];
             
             $this->db->insert('users', $record);
