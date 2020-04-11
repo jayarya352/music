@@ -239,6 +239,7 @@ class Admin extends CI_Controller {
             $data = array('upload_data' => $this->upload->data());
             // $songPath = $data['upload_data']['full_path'];
             $songPath = $data['upload_data']['raw_name'].$data['upload_data']['file_ext'];
+            
 
             // ******** upload original thumbnail image ********* //
             $config['upload_path']          = './assets/thumbnail/original';
