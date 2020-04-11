@@ -209,7 +209,7 @@ class Admin extends CI_Controller {
         
         $config['upload_path']          =  './assets/songs/';
         $config['allowed_types']        = 'gif|jpg|png|jpeg|mp3';
-        $config['max_size']             = '10000';
+        $config['max_size']             = '100000';
 
         // =========********make directories if not exists********==========
         if (!is_dir('./assets/songs/')) {
@@ -237,7 +237,8 @@ class Admin extends CI_Controller {
         }
         else {
             $data = array('upload_data' => $this->upload->data());
-            $songPath = $data['upload_data']['full_path'];
+            // $songPath = $data['upload_data']['full_path'];
+            $songPath = $data['upload_data']['raw_name'].$data['upload_data']['file_ext'];
 
             // ******** upload original thumbnail image ********* //
             $config['upload_path']          = './assets/thumbnail/original';
@@ -268,10 +269,10 @@ class Admin extends CI_Controller {
 
                 // ********* get resize image path ******** //
                 $thumbnail = $data['upload_thubmnail_data']['raw_name'].'_thumb'.$data['upload_thubmnail_data']['file_ext'];
-                $basename = basename($data['upload_thubmnail_data']['file_path']);
-                $thumbnail_320X320 = str_replace($basename,'320X320',$data['upload_thubmnail_data']['file_path']);
-                $thumbnail_320X320_path = $thumbnail_320X320.$thumbnail;
-                $post_data['thumbnail_320X320'] = $thumbnail_320X320_path;
+                // $basename = basename($data['upload_thubmnail_data']['file_path']);
+                // $thumbnail_320X320 = str_replace($basename,'320X320',$data['upload_thubmnail_data']['file_path']);
+                // $thumbnail_320X320_path = $thumbnail_320X320.$thumbnail;
+                $post_data['thumbnail_320X320'] = $thumbnail;
                 // ********* end get resize image path ******** //
 
                 
@@ -288,10 +289,10 @@ class Admin extends CI_Controller {
 
                 // ********* get resize image path ******** //
                 $thumbnail = $data['upload_thubmnail_data']['raw_name'].'_thumb'.$data['upload_thubmnail_data']['file_ext'];
-                $basename = basename($data['upload_thubmnail_data']['file_path']);
-                $thumbnail_128X128 = str_replace($basename,'128X128',$data['upload_thubmnail_data']['file_path']);
-                $thumbnail_128X128_path = $thumbnail_128X128.$thumbnail;
-                $post_data['thumbnail_128X128'] = $thumbnail_128X128_path;
+                // $basename = basename($data['upload_thubmnail_data']['file_path']);
+                // $thumbnail_128X128 = str_replace($basename,'128X128',$data['upload_thubmnail_data']['file_path']);
+                // $thumbnail_128X128_path = $thumbnail_128X128.$thumbnail;
+                $post_data['thumbnail_128X128'] = $thumbnail;
                 // ********* end get resize image path ******** //
 
                 // ******* save song details and thumbnail in db ******* //

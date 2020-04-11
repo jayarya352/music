@@ -383,7 +383,7 @@
                                 </div>
                             </div>
                             <a href="javascript:void(0);" class="external" data-audio='{"name": "<?php echo $allsong['name']; ?>", "artist": "Arebica Luna", "album": "Mummy", "url": "<?php echo base_url();  ?>uploads/<?php echo $allsong['filename']; ?>", "cover_art_url": "<?php echo base_url();  ?>uploads/<?php echo $allsong['thumbnail_128X128']; ?>"}'>
-                                <img src="<?php echo base_url();  ?>uploads/<?php echo $allsong['thumbnail_320X320']; ?>" alt="I Love You Mummy" class="card-img--radius-lg">
+                                <img src="<?php echo $allsong['thumbnail_320X320']; ?>" alt="I Love You Mummy" class="card-img--radius-lg">
                             </a>
                         </div>
 

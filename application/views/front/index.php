@@ -156,8 +156,8 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="javascript:void(0);" class="external" data-audio='{"name": "<?php echo $allsongs['name']; ?>", "artist": "Arebica Luna", "album": "Mummy", "url": "<?php echo base_url();  ?>uploads/<?php echo $allsongs['filename']; ?>", "cover_art_url": "<?php echo base_url();  ?>uploads/<?php echo $allsongs['thumbnail_128X128']; ?>"}'>
-                                <img src="<?php echo base_url();  ?>uploads/<?php echo $allsongs['thumbnail_320X320']; ?>" alt="I Love You Mummy" class="card-img--radius-lg">
+                            <a href="javascript:void(0);" class="external" data-audio='{"name": "<?php echo $allsongs['name']; ?>", "artist": "Arebica Luna", "album": "Mummy", "url": "<?php echo base_url();  ?>assets/songs/<?php echo $allsongs['filename']; ?>", "cover_art_url": "<?php echo base_url();  ?>uploads/<?php echo $allsongs['thumbnail_128X128']; ?>"}'>
+                                <img src="<?php echo base_url();  ?>assets/thumbnail/320X320/<?php echo $allsongs['thumbnail_320X320']; ?>" alt="I Love You Mummy" class="card-img--radius-lg">
                             </a>
                         </div>
 
