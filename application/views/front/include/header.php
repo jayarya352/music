@@ -308,16 +308,27 @@
                 </button>
             </div>
             <form method="post" action="<?php echo base_url(); ?>index.php/register/create">
-            <div class="modal-body">
+            <div class="modal-body" id="userRegistration">
                 <ul class="list-group row">
                     
+                    <span><p id="errorMsg" style="color:red; text-align:center;"></p></span>
+                    <div class="form-group" id="form-group">
+                        <div class="col-md-12">
+                            <label>
+                               <strong> Name </strong>
+                            </label>
+                            
+                            <input type="text" class="form-control" name="name" id="reg_name">
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <div class="col-md-12">
                             <label>
                                <strong> Email </strong>
                             </label>
                             
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="email" id="reg_email">
                         </div>
                     </div>
 
@@ -327,7 +338,7 @@
                                <strong> Passowrd </strong>
                             </label>
                             
-                            <input type="password" class="form-control">
+                            <input type="password" class="form-control" name="password" id="reg_password">
                         </div>
                     </div>
 
@@ -336,14 +347,14 @@
                             <label>
                                 <strong>Confirm Password </strong>
                             </label>
-                            <input type="password" class="form-control">
+                            <input type="password" class="form-control" name="con_password" id="reg_con_password">
                         </div>
                     </div>
 
                 </ul>
             </div>
-            <div class="modal-footer text-center d-block" style="background: linear-gradient(110deg, #fdcd3b 50%, #ffffff 50%);">
-                <button type="submit" class="btn btn-primary btn-pill" id="langApply">Register</button>
+            <div class="modal-footer text-center d-block" id="registerApply" onclick="registerfunction();" style="background: linear-gradient(110deg, #fdcd3b 50%, #ffffff 50%);">
+                <button type="button" class="btn btn-primary btn-pill" >Register</button>
                 
             </div>
             </form>
@@ -353,4 +364,60 @@
 <!-- End | Register Modal -->
 
 
+<script>
+    function registerfunction(){
+        
+        $('.errorClass').remove();
+        $('.successClass').remove();
+        var is_error = false;
 
+        var name = $('#reg_name').val();
+        if(name == ''){
+            is_error = true;
+            $('#reg_name').after('<p style="color:red" class="errorClass">Field is required</p>');
+        } 
+        var email = $('#reg_email').val();
+        if(email == ''){
+            is_error = true;
+            $('#reg_email').after('<p style="color:red" class="errorClass">Field is required</p>');
+        }
+        var password = $('#reg_password').val();
+        if(password == ''){
+            is_error = true;
+            $('#reg_password').after('<p style="color:red" class="errorClass">Field is required</p>');
+        }
+        var conpassword = $('#reg_con_password').val();
+        if(conpassword == ''){
+            is_error = true;
+            $('#reg_con_password').after('<p style="color:red" class="errorClass">Field is required</p>');
+        }
+        if(password != conpassword){
+            $('#errorMsg').text('Password and confirm password does not matched!')
+            is_error = true;
+        }
+        if(is_error){
+            return false;
+        } else {
+
+            $('.errorClass').remove();
+            $('#errorMsg').text('');
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url(); ?>index.php/register/create',
+                data: $('#userRegistration input[type=\'text\'], #userRegistration input[type=\'password\']'),
+                
+                success: function(data) {
+                    if(data == 'success'){
+                        $('#form-group').before('<p style="color:green; text-align:center" class="successClass">Thanks for connecting with us. Your details have been saved.</p>');
+                        setTimeout(function() {
+                            location.reload();
+                        }, 5000);
+                    } else {
+                        $('#form-group').before('<p style="color:red; text-align:center" class="errorClass">'+data+'</p>');
+                        
+                    }
+                }
+            });
+        }
+    }
+</script>

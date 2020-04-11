@@ -35,3 +35,4 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="<?php echo base_url(); ?>assets/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="<?php echo base_url(); ?>assets/js/active.js"></script>
+

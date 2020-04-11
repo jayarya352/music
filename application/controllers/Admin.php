@@ -243,7 +243,7 @@ class Admin extends CI_Controller {
             // ******** upload original thumbnail image ********* //
             $config['upload_path']          = './assets/thumbnail/original';
             $config['allowed_types']        = 'gif|jpg|png|jpeg';
-            $config['max_size']             = '1000';
+            $config['max_size']             = '10000';
 
             
             $this->upload->initialize($config);
