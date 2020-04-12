@@ -1,0 +1,7 @@
+ALTER TABLE `artists` ADD `image` TEXT NULL AFTER `name`;
+
+ALTER TABLE `songs` ADD `lyricist` VARCHAR(100) NULL AFTER `filename`, ADD `composer` VARCHAR(100) NULL AFTER `lyricist`, ADD `music` VARCHAR(100) NULL AFTER `composer`;
+
+ALTER TABLE `songs` ADD `isActive` INT NOT NULL DEFAULT '1' AFTER `added_date`;
+
+added_date

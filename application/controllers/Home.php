@@ -10,12 +10,15 @@ class Home extends CI_Controller {
 		$this->load->library('session');
 		$this->load->model('User_model');
 		$this->load->model('Song_model');
+		$this->load->model('Artist_model');
 
 	}
 
 	public function index()
 	{
 		$data['all_song']=$this->Song_model->getAllsong();  //this function use for ger all song...
+		$data['all_artists'] = $this->Artist_model->getArtistsList();
+		
 		$this->load->view('front/index',$data);
 		
 	}

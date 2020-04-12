@@ -177,8 +177,32 @@ class Admin extends CI_Controller {
 
     function addArtist(){
         $artistData = $this->input->post();
-        $this->Artist_model->saveArtist($artistData);
-        redirect(base_url() . "index.php/admin/artistList");
+        $name = $artistData['artist_name'];
+
+
+        
+        // ******** upload artists image ********* //
+        $config['upload_path']          = './assets/Artist';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $config['max_size']             = '10000';
+
+        $new_name = $name.$_FILES["artists_file"]['name'];
+        $config['file_name'] = $new_name;
+
+        
+        if (!is_dir('./assets/Artist/')) {
+            mkdir('./assets/Artist/', 0777, TRUE);
+        }
+        $this->upload->initialize($config);
+        if (!$this->upload->do_upload('artists_file')) {
+            $error = array('error' => $this->upload->display_errors());
+            
+            $this->session->set_flashdata('error',$error['error']);
+            redirect(base_url() . "index.php/admin/addArtist");
+        } else {
+            $this->Artist_model->saveArtist($artistData,$config['file_name']);
+            redirect(base_url() . "index.php/admin/artistList");
+        }
     }
 
     function addAlbum(){

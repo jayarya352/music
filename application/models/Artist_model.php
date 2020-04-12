@@ -2,9 +2,10 @@
 
 class Artist_model extends CI_Model {
     
-    public function saveArtist($data){ 
+    public function saveArtist($data, $file){ 
         $artist_data = array(
             "name" => $data['artist_name'],
+            "image"=> trim($file)
         );
         $this->db->insert('artists',$artist_data);
         

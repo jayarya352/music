@@ -48,7 +48,7 @@
                     <div class="">
                         <div class="page-title">
                             <div class="title_left">
-                                <h3>Add Album</h3>
+                                <h3>Add Song</h3>
                             </div>
 
                         </div>
@@ -79,7 +79,7 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Artist Name </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
 
-                                                    <select name="artist" class="form-control">
+                                                    <select name="artist" class="form-control" required>
                                                         <option>Choose Artist</option>
                                                         <?php foreach($getArtists as $allArtists){?>
                                                             <option value="<?php echo $allArtists['id']; ?>"><?php echo $allArtists['name']; ?></option>
@@ -110,6 +110,30 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Lyricist </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                                    <input type="text" class="form-control col-md-7 col-xs-12" name="lyricist" value="" >
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Composer </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                                    <input type="text" class="form-control col-md-7 col-xs-12" name="composer" value="" >
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Music </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                                    <input type="text" class="form-control col-md-7 col-xs-12" name="music" value="" >
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Upload Song </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
 
@@ -124,6 +148,9 @@
                                                     <input type="file" class="form-control col-md-7 col-xs-12" name="thumbnail_file" value="" >
                                                 </div>
                                             </div>
+
+                                            
+                                            
                                             
                                             <div class="ln_solid"></div>
                                             <div class="form-group">
