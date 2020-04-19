@@ -232,7 +232,7 @@ class Admin extends CI_Controller {
         $post_data = $this->input->post();
         
         $config['upload_path']          =  './assets/songs/';
-        $config['allowed_types']        = 'gif|jpg|png|jpeg|mp3';
+        $config['allowed_types']        = '*';
         $config['max_size']             = '100000';
 
         // =========********make directories if not exists********==========
@@ -256,6 +256,7 @@ class Admin extends CI_Controller {
         // ******* showing error if exists ******* //
         if (!$this->upload->do_upload('song_file')) {
             $error = array('error' => $this->upload->display_errors());
+            print_r($error); die;
             $this->session->set_flashdata('error',$error['error']);
             redirect(base_url() . "index.php/admin/song");
         }
@@ -267,7 +268,7 @@ class Admin extends CI_Controller {
 
             // ******** upload original thumbnail image ********* //
             $config['upload_path']          = './assets/thumbnail/original';
-            $config['allowed_types']        = 'gif|jpg|png|jpeg';
+            $config['allowed_types']        = '*';
             $config['max_size']             = '10000';
 
             
@@ -282,16 +283,21 @@ class Admin extends CI_Controller {
                 $data = array('upload_thubmnail_data' => $this->upload->data());
                 
                 // store image with 320 X 320 size.
-                $resize['create_thumb'] = 'gd2';
+                $resize['image_library'] = 'gd2';
+                
                 $resize['source_image'] = $data['upload_thubmnail_data']['full_path'];
                 $resize['new_image'] =  './assets/thumbnail/320X320';
                 $resize['maintain_ratio']       = TRUE;
                 $resize['width']                = 320;
                 $resize['height']               = 320;
-                $this->image_lib->clear();
+                $this->load->library('image_lib',$resize);
+                
                 $this->image_lib->initialize($resize);
                 $this->image_lib->resize();
-
+                if (!$this->image_lib->resize()) {
+                    echo $this->image_lib->display_errors(); die;
+                }
+                
                 // ********* get resize image path ******** //
                 $thumbnail = $data['upload_thubmnail_data']['raw_name'].'_thumb'.$data['upload_thubmnail_data']['file_ext'];
                 // $basename = basename($data['upload_thubmnail_data']['file_path']);
@@ -308,6 +314,7 @@ class Admin extends CI_Controller {
                 $resize['maintain_ratio']       = TRUE;
                 $resize['width']                = 128;
                 $resize['height']               = 128;
+                
                 $this->image_lib->clear();
                 $this->image_lib->initialize($resize);
                 $this->image_lib->resize();

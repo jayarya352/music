@@ -208,7 +208,8 @@
                 <img src="<?php echo base_url();  ?>assets/images/svg/translate.svg" alt="">
             </a>
         </li>
-        <?php if($this->session->userdata('uid')){ ?>
+        
+        <?php if(isset($this->session->userdata['userDetail']['userId']) && $this->session->userdata['userDetail']['userId']){ ?>
         <li class="dropdown fade-in">
             <a href="javascript:void(0);" class="d-flex align-items-center py-2" role="button" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="avatar avatar-sm avatar-circle"><img src="<?php echo base_url();  ?>assets/images/users/thumb.jpg" alt="user"></div>
@@ -220,7 +221,7 @@
                 <a class="dropdown-item" href="<?php echo base_url(); ?>index.php/home/settings"><i class="ion-md-settings"></i> <span>Settings</span></a>
                 <div class="dropdown-divider"></div>
                 <div class="px-4 py-2">
-                    <a href="#" class="btn btn-sm btn-air btn-pill btn-danger">Logout</a>
+                    <a href="<?php echo base_url(); ?>index.php/login/logout" class="btn btn-sm btn-air btn-pill btn-danger">Logout</a>
                 </div>
             </div>
         </li>
@@ -260,7 +261,7 @@
                 </button>
             </div>
             <form method="post" action="<?php echo base_url(); ?>index.php/login/login">
-            <div class="modal-body">
+            <div class="modal-body" id="userLogin">
                 <ul class="list-group row">
                    
                     <div class="form-group">
@@ -269,7 +270,7 @@
                                <strong> Email </strong>
                             </label>
                             
-                            <input type="text" class="form-control">
+                            <input type="text" name="username" class="form-control">
                         </div>
                     </div>
 
@@ -278,14 +279,14 @@
                             <label>
                                 <strong> Password </strong>
                             </label>
-                            <input type="password" class="form-control">
+                            <input type="password" name="password" class="form-control">
                         </div>
                     </div>
                    
                 </ul>
             </div>
             <div class="modal-footer text-center d-block" style="background: linear-gradient(110deg, #fdcd3b 50%, #ffffff 50%);">
-                <button type="submit" class="btn btn-primary btn-pill" id="langApply">Login</button>
+                <button type="button" class="btn btn-primary btn-pill" id="langApply" onclick="loginfunction();" >Login</button>
                 
             </div>
             </form> 
@@ -353,8 +354,8 @@
 
                 </ul>
             </div>
-            <div class="modal-footer text-center d-block" id="registerApply" onclick="registerfunction();" style="background: linear-gradient(110deg, #fdcd3b 50%, #ffffff 50%);">
-                <button type="button" class="btn btn-primary btn-pill" >Register</button>
+            <div class="modal-footer text-center d-block" id="registerApply"  style="background: linear-gradient(110deg, #fdcd3b 50%, #ffffff 50%);">
+                <button type="button" class="btn btn-primary btn-pill"  onclick="registerfunction();">Register</button>
                 
             </div>
             </form>
@@ -420,4 +421,26 @@
             });
         }
     }
+
+    function loginfunction(){
+
+        $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url(); ?>index.php/login/login',
+                data: $('#userLogin input[type=\'text\'], #userLogin input[type=\'password\']'),
+                
+                success: function(data) {
+                    
+                    if(data == 'success'){
+                        $('#form-group').before('<p style="color:green; text-align:center" class="successClass">Thanks for connecting with us. Your details have been saved.</p>');
+                        location.reload();
+                    } else {
+                        $('#form-group').before('<p style="color:red; text-align:center" class="errorClass">'+data+'</p>');
+                        
+                    }
+                }
+            });
+
+    }
+
 </script>

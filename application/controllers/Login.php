@@ -13,6 +13,7 @@ class Login extends CI_Controller {
     }
     
     public function login(){
+       
         $email = $this->input->post('username'); // store the post values in variable.
         $pass = $this->input->post('password'); 
         // $getUserData= $this->User_model->doLogin($user,$pass);
@@ -21,13 +22,13 @@ class Login extends CI_Controller {
             
             $getUserData = $this->User_model->doLogin($email,$pass); //get the total number of rows behalf of email id.
             $count = count($getUserData); //This function use for count rows of selected data.
+            
             if(!$count > 0){ // if user already register with us then system will showing an error message.
-                $this->session->set_flashdata('error', "Your Email Id or Password incorrect");
-                $this->session->set_flashdata('user_data', $email); // set post data in session for persistence.
+            echo "Your Email Id or Password incorrect"; die;
+            // $this->session->set_flashdata('user_data', $email); // set post data in session for persistence.
                
-                redirect('/Home/login_page');
+                // redirect('/Home/login_page');
             } else {
-                    $this->session->set_flashdata('success', "Thanks for connecting with us. Click here to Login In");
                     $userdata = array(
                         'name' => $getUserData[0]['name'],
                         'userId' => $getUserData[0]['id'],
@@ -35,6 +36,9 @@ class Login extends CI_Controller {
                         'role_id' => $getUserData[0]['role_id']
                     );
                     $this->session->set_userdata('userDetail',$userdata);
+                    echo 'success'; die;
+
+                    
                     // $this->session->set_userdata('uid',$userdata['userId']);
                     // $this->session->set_userdata('uid',$email);
                 //      foreach($get_data as $row){
@@ -42,7 +46,7 @@ class Login extends CI_Controller {
                 // }
                     // $data=$this->session->userdata('uid');
                     // print_r($data); die;
-                    redirect('/Home');
+                    // redirect('/Home');
             }
 
         // } catch (Exception $e) {
@@ -53,7 +57,8 @@ class Login extends CI_Controller {
     }
 
     public function logout(){
-        $this->session->unset_userdata('userDetail');
+        session_destroy();
+        // $this->session->unset_userdata('userDetail');
         redirect('/Home');
     }
 	

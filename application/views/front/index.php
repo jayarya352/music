@@ -111,8 +111,8 @@
                 <div class="heading">
                     <div class="d-flex flex-wrap align-items-end">
                         <div class="flex-grow-1">
-                            <h4>Top Charts</h4>
-                            <p>Listen top chart</p>
+                            <h4>Trending Songs</h4>
+                            <p>Listen top </p>
                         </div>
                         <a href="<?php echo base_url(); ?>index.php/home/songs" class="btn btn-sm btn-pill btn-air btn-primary">View All</a>
                     </div>
@@ -495,7 +495,7 @@
                 <div class="heading">
                     <div class="d-flex flex-wrap align-items-end">
                         <div class="flex-grow-1">
-                            <h4>Your Playlist</h4>
+                            <h4>Top Playlist</h4>
                             <p>You best to listen</p>
                         </div>
                         <a href="playlist.html" class="btn btn-sm btn-pill btn-air btn-primary">View All</a>

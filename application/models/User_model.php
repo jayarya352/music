@@ -26,6 +26,7 @@ class User_model extends CI_Model {
 
     function doLogin($email, $pass){
         $select['get_data']=$this->db->query("select * from users where email='".$email."' and password='".$pass."' "); // this query use for match email and password from database.
+        //echo "select * from users where email='".$email."' and password='".$pass."'"; die;
          return $select['get_data']->result_array(); // this function will return total number of rows.
         // if($num >=1){
         //     return true;
