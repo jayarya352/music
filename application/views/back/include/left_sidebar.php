@@ -1,5 +1,5 @@
  <div class="navbar nav_title" style="border: 0;">
-              <a href="#" class="site_title"> <span>Carts24X7</span></a>
+              <a href="#" class="site_title"> <span>Music</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -73,4 +73,4 @@
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
-            <!-- /menu footer buttons -->
+             /menu footer buttons -->

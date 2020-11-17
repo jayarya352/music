@@ -16,10 +16,11 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$data['all_song']=$this->Song_model->getAllsong();  //this function use for ger all song...
+		$data['all_song']=$this->Song_model->getAllsong();  //this function use for get all song...
 		$data['all_artists'] = $this->Artist_model->getArtistsList();
 		
 		$this->load->view('front/index',$data);
+		
 		
 	}
 
@@ -71,7 +72,8 @@ class Home extends CI_Controller {
 	}
 
 	function artists(){ 
-		$this->load->view('front/artists');
+		$data['all_artists'] = $this->Artist_model->getArtistsList();
+		$this->load->view('front/artists',$data);
 	}
 
 	function analytics(){ 

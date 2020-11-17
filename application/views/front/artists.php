@@ -37,19 +37,7 @@
 <body>
 
 <!-- Begin | Loading [[ Find at scss/framework/base/loader/loader.scss ]] -->
-<div id="loading">
-    <div class="loader">
-        <div class="eq">
-            <span class="eq-bar eq-bar--1"></span>
-            <span class="eq-bar eq-bar--2"></span>
-            <span class="eq-bar eq-bar--3"></span>
-            <span class="eq-bar eq-bar--4"></span>
-            <span class="eq-bar eq-bar--5"></span>
-            <span class="eq-bar eq-bar--6"></span>
-        </div>
-        <span class="text">Loading</span>
-    </div>
-</div>
+
 <!-- End | Loading -->
 
 <!-- Begin | Wrapper [[ Find at scss/framework/base/wrapper/wrapper.scss ]] -->
@@ -121,214 +109,25 @@
             </div>
 
             <div class="row section">
+            <?php  
+                    foreach($all_artists as $allArtists){
+                    ?>
+
                 <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
                     <div class="custom-card">
                         <div class="custom-card--img">
                             <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/1.jpg" alt="Arebica Luna" class="card-img--radius-lg">
+                                <img src="<?php echo base_url();  ?>assets/Artist/<?php echo $allArtists['image']; ?>" alt="Arebica Luna" class="card-img--radius-lg">
                             </a>
                         </div>
 
                         <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Arebica Luna</h6>
+                            <h6 class="mb-0"><?php echo $allArtists['name']; ?></h6>
                         </a>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/2.jpg" alt="Gerrina Linda" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Gerrina Linda</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/3.jpg" alt="Zunira Willy" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Zunira Willy</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/4.jpg" alt="Johnny Marro" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Johnny Marro</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/5.jpg" alt="Jina Moore" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Jina Moore</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/6.jpg" alt="Rasomi Pelina" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Rasomi Pelina</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/9.jpg" alt="Lenisa Gory" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Lenisa Gory</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/10.jpg" alt="Nutty Nina" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Nutty Nina</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/1.jpg" alt="Arebica Luna" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Arebica Luna</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/2.jpg" alt="Gerrina Linda" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Gerrina Linda</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/3.jpg" alt="Zunira Willy" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Zunira Willy</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/4.jpg" alt="Johnny Marro" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Johnny Marro</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/5.jpg" alt="Jina Moore" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Jina Moore</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/6.jpg" alt="Rasomi Pelina" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Rasomi Pelina</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/9.jpg" alt="Lenisa Gory" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Lenisa Gory</h6>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="artist-details.html">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/10.jpg" alt="Nutty Nina" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="artist-details.html" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Nutty Nina</h6>
-                        </a>
-                    </div>
-                </div>
+                    <?php  } ?>
+                
             </div>
 
         </div>

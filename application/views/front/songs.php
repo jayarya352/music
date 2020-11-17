@@ -331,7 +331,7 @@
         <div class="main-container" id="appRoute">
 
             <div class="row align-items-end">
-                <span class="col-6 font-weight-bold">5,012 Results</span>
+                <span class="col-6 font-weight-bold"><?php echo count($all_song); ?> songs</span>
                 <div class="col-6 ml-auto">
                     <form action="#" class="form-inline justify-content-end">
                         <label class="mr-2" for="filter2">Sorted By:</label>
@@ -346,7 +346,10 @@
             </div>
 
             <div class="row section">
-                <?php foreach($all_song as $allsong){ ?>
+           
+                <?php
+                 foreach($all_song as $allsong){ 
+                    ?>
                 <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
                     <div class="custom-card">
                         <div class="custom-card--img">
@@ -382,8 +385,8 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="javascript:void(0);" class="external" data-audio='{"name": "<?php echo $allsong['name']; ?>", "artist": "Arebica Luna", "album": "Mummy", "url": "<?php echo base_url();  ?>uploads/<?php echo $allsong['filename']; ?>", "cover_art_url": "<?php echo base_url();  ?>uploads/<?php echo $allsong['thumbnail_128X128']; ?>"}'>
-                                <img src="<?php echo $allsong['thumbnail_320X320']; ?>" alt="I Love You Mummy" class="card-img--radius-lg">
+                            <a href="javascript:void(0);" class="external" data-audio='{"name": "<?php echo $allsong['name']; ?>", "artist": "Arebica Luna", "album": "Mummy", "url": "<?php echo base_url();  ?>uploads/<?php echo $allsong['filename']; ?>", "cover_art_url": "<?php echo base_url();  ?>assets/thumbnail/128X128/<?php echo $allsong['thumbnail_128X128']; ?>"}'>
+                                <img src="<?php echo base_url();  ?>assets/thumbnail/320X320/<?php echo $allsong['thumbnail_320X320']; ?>" alt="I Love You Mummy" class="card-img--radius-lg" >
                             </a>
                         </div>
 
@@ -393,7 +396,9 @@
                         </a>
                     </div>
                 </div>
-                <?php } ?>
+                <?php 
+                } 
+                ?>
 
                 
             </div>

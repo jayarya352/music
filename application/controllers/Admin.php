@@ -256,7 +256,7 @@ class Admin extends CI_Controller {
         // ******* showing error if exists ******* //
         if (!$this->upload->do_upload('song_file')) {
             $error = array('error' => $this->upload->display_errors());
-            print_r($error); die;
+            // print_r($error); die;
             $this->session->set_flashdata('error',$error['error']);
             redirect(base_url() . "index.php/admin/song");
         }

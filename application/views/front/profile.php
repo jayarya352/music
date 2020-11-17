@@ -113,7 +113,7 @@
                                     <div class="avatar avatar-xl avatar-circle mx-auto mb-4">
                                         <img src="<?php echo base_url();  ?>assets/images/users/thumb.jpg" alt="user">
                                     </div>
-                                    <h6 class="mb-3">Halo Admin</h6>
+                                    <h6 class="mb-3"><?php echo ucfirst($this->session->userdata['userDetail']['name']); ?> </h6>
                                     <p class="mb-1">Preferred by: 420x420(px)</p>
                                     <p>Minimum: 128x128(px)</p>
                                     <button type="button" class="btn btn-danger btn-air">Change Image</button>
@@ -126,7 +126,7 @@
                                     <form action="#" class="row">
                                         <div class="col-xl-6 form-group">
                                             <label for="firstName" class="form-label">First Name</label>
-                                            <input type="text" id="firstName" class="form-control" value="Halo">
+                                            <input type="text" id="firstName" class="form-control" value="<?php echo ucfirst($this->session->userdata['userDetail']['name']); ?>">
                                         </div>
                                         <div class="col-xl-6 form-group">
                                             <label for="lastName" class="form-label">Last Name</label>

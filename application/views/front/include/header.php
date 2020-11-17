@@ -215,7 +215,7 @@
                 <div class="avatar avatar-sm avatar-circle"><img src="<?php echo base_url();  ?>assets/images/users/thumb.jpg" alt="user"></div>
                 <span class="pl-2">Halo Admin</span>
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">Admin
                 <a class="dropdown-item" href="<?php echo base_url(); ?>index.php/home/profile"><i class="ion-md-contact"></i> <span>Profile</span></a>
                 <a class="dropdown-item" href="<?php echo base_url(); ?>index.php/home/plan"><i class="ion-md-radio-button-off"></i> <span>Your Plan</span></a>
                 <a class="dropdown-item" href="<?php echo base_url(); ?>index.php/home/settings"><i class="ion-md-settings"></i> <span>Settings</span></a>

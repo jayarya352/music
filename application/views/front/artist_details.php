@@ -37,19 +37,7 @@
 <body>
 
 <!-- Begin | Loading [[ Find at scss/framework/base/loader/loader.scss ]] -->
-<div id="loading">
-    <div class="loader">
-        <div class="eq">
-            <span class="eq-bar eq-bar--1"></span>
-            <span class="eq-bar eq-bar--2"></span>
-            <span class="eq-bar eq-bar--3"></span>
-            <span class="eq-bar eq-bar--4"></span>
-            <span class="eq-bar eq-bar--5"></span>
-            <span class="eq-bar eq-bar--6"></span>
-        </div>
-        <span class="text">Loading</span>
-    </div>
-</div>
+
 <!-- End | Loading -->
 
 <!-- Begin | Wrapper [[ Find at scss/framework/base/wrapper/wrapper.scss ]] -->
@@ -104,6 +92,7 @@
 
         <!-- Begin | Main Container [[ Find at scss/base/core.scss ]] -->
         <div class="main-container" id="appRoute">
+        
             <div class="row section text-center text-md-left">
                 <div class="col-xl-3 col-lg-4 col-sm-5">
                     <img src="<?php echo base_url();  ?>assets/images/cover/large/10.jpg" alt="" class="card-img--radius-lg">

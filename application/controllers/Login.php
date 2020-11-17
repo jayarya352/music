@@ -10,7 +10,8 @@ class Login extends CI_Controller {
         $this->load->library('session');
         $this->load->model('User_model');
 
-    }
+    }	
+
     
     public function login(){
        
@@ -24,7 +25,7 @@ class Login extends CI_Controller {
             $count = count($getUserData); //This function use for count rows of selected data.
             
             if(!$count > 0){ // if user already register with us then system will showing an error message.
-            echo "Your Email Id or Password incorrect"; die;
+            echo "Your Email Id or Password incorrect"; 
             // $this->session->set_flashdata('user_data', $email); // set post data in session for persistence.
                
                 // redirect('/Home/login_page');
@@ -36,7 +37,7 @@ class Login extends CI_Controller {
                         'role_id' => $getUserData[0]['role_id']
                     );
                     $this->session->set_userdata('userDetail',$userdata);
-                    echo 'success'; die;
+                    echo 'success'; 
 
                     
                     // $this->session->set_userdata('uid',$userdata['userId']);
