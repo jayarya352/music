@@ -216,12 +216,12 @@
                 <span class="pl-2">Halo Admin</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">Admin
-                <a class="dropdown-item" href="<?php echo base_url(); ?>index.php/home/profile"><i class="ion-md-contact"></i> <span>Profile</span></a>
-                <a class="dropdown-item" href="<?php echo base_url(); ?>index.php/home/plan"><i class="ion-md-radio-button-off"></i> <span>Your Plan</span></a>
-                <a class="dropdown-item" href="<?php echo base_url(); ?>index.php/home/settings"><i class="ion-md-settings"></i> <span>Settings</span></a>
+                <a class="dropdown-item" href="<?php echo base_url(); ?>home/profile"><i class="ion-md-contact"></i> <span>Profile</span></a>
+                <a class="dropdown-item" href="<?php echo base_url(); ?>home/plan"><i class="ion-md-radio-button-off"></i> <span>Your Plan</span></a>
+                <a class="dropdown-item" href="<?php echo base_url(); ?>home/settings"><i class="ion-md-settings"></i> <span>Settings</span></a>
                 <div class="dropdown-divider"></div>
                 <div class="px-4 py-2">
-                    <a href="<?php echo base_url(); ?>index.php/login/logout" class="btn btn-sm btn-air btn-pill btn-danger">Logout</a>
+                    <a href="<?php echo base_url(); ?>login/logout" class="btn btn-sm btn-air btn-pill btn-danger">Logout</a>
                 </div>
             </div>
         </li>
@@ -260,7 +260,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" action="<?php echo base_url(); ?>index.php/login/login">
+            <form method="post" action="<?php echo base_url(); ?>login/login">
             <div class="modal-body" id="userLogin">
                 <ul class="list-group row">
                    
@@ -308,7 +308,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" action="<?php echo base_url(); ?>index.php/register/create">
+            <form method="post" action="<?php echo base_url(); ?>register/create">
             <div class="modal-body" id="userRegistration">
                 <ul class="list-group row">
                     
@@ -404,7 +404,7 @@
             $('#errorMsg').text('');
             $.ajax({
                 type: 'POST',
-                url: '<?php echo base_url(); ?>index.php/register/create',
+                url: '<?php echo base_url(); ?>register/create',
                 data: $('#userRegistration input[type=\'text\'], #userRegistration input[type=\'password\']'),
                 
                 success: function(data) {
@@ -426,7 +426,7 @@
 
         $.ajax({
                 type: 'POST',
-                url: '<?php echo base_url(); ?>index.php/login/login',
+                url: '<?php echo base_url(); ?>login/login',
                 data: $('#userLogin input[type=\'text\'], #userLogin input[type=\'password\']'),
                 
                 success: function(data) {

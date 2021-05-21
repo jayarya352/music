@@ -60,7 +60,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
 					<ul class="nav navbar-right panel_toolbox">
-						<li><a href="<?php echo base_url()?>index.php/admin/blog/add" class="close-link"><i class="fa fa-plus"></i> Add Category</a></li>
+						<li><a href="<?php echo base_url()?>admin/blog/add" class="close-link"><i class="fa fa-plus"></i> Add Category</a></li>
 					</ul>
                   <div class="x_content">
                     
@@ -103,8 +103,8 @@
 								Deactive
 							<?php } ?>
 						  </td>
-                          <td><a href="<?php echo base_url()?>index.php/admin/blog/edit/<?php echo $row['id']; ?>" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> | 
-								<a href="<?php echo base_url()?>index.php/admin/blog/delete/<?php echo $row['id']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                          <td><a href="<?php echo base_url()?>admin/blog/edit/<?php echo $row['id']; ?>" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> | 
+								<a href="<?php echo base_url()?>admin/blog/delete/<?php echo $row['id']; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                          
                         </tr>
 						<?php } ?>

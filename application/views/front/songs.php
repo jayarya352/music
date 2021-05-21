@@ -390,7 +390,7 @@
                             </a>
                         </div>
 
-                        <a href="<?php echo base_url(); ?>index.php/song_details/<?php echo $allsong['id']; ?>" class="custom-card--link mt-2">
+                        <a href="<?php echo base_url(); ?>song_details/<?php echo $allsong['id']; ?>" class="custom-card--link mt-2">
                             <h6><?php echo $allsong['name']; ?></h6>
                             <p>Arebica Luna</p>
                         </a>

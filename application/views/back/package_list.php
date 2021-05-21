@@ -60,7 +60,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <ul class="nav navbar-right panel_toolbox">
-                                    <li><a href="<?php echo base_url() ?>index.php/admin/package/add" class="close-link"><i class="fa fa-plus"></i> Add Package</a></li>
+                                    <li><a href="<?php echo base_url() ?>admin/package/add" class="close-link"><i class="fa fa-plus"></i> Add Package</a></li>
                                 </ul>
                                 <div class="x_content">
 

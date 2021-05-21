@@ -105,7 +105,7 @@
                             <h4>Trending Songs</h4>
                             <p>Listen top </p>
                         </div>
-                        <a href="<?php echo base_url(); ?>index.php/home/songs" class="btn btn-sm btn-pill btn-air btn-primary">View All</a>
+                        <a href="<?php echo base_url(); ?>home/songs" class="btn btn-sm btn-pill btn-air btn-primary">View All</a>
                     </div>
                     <hr>
                 </div>
@@ -152,7 +152,7 @@
                             </a>
                         </div>
 
-                        <a href="<?php echo base_url(); ?>index.php/home/song_details/<?php echo $allsongs['id']; ?>" class="custom-card--link mt-2">
+                        <a href="<?php echo base_url(); ?>home/song_details/<?php echo $allsongs['id']; ?>" class="custom-card--link mt-2">
                             <h6><?php echo $allsongs['name']; ?></h6>
                             <p>Arebica Luna</p>
                         </a>
@@ -185,7 +185,7 @@
             <h4>New Releases</h4>
             <p>Listen recently release music</p>
         </div>
-        <a href="<?php echo base_url(); ?>index.php/home/songs" class="btn btn-sm btn-pill btn-air btn-primary">View All</a>
+        <a href="<?php echo base_url(); ?>home/songs" class="btn btn-sm btn-pill btn-air btn-primary">View All</a>
     </div>
     <hr>
 </div>
@@ -232,7 +232,7 @@
             </a>
         </div>
 
-        <a href="<?php echo base_url(); ?>index.php/home/song_details/<?php echo $allsongs['id']; ?>" class="custom-card--link mt-2">
+        <a href="<?php echo base_url(); ?>home/song_details/<?php echo $allsongs['id']; ?>" class="custom-card--link mt-2">
             <h6><?php echo $allsongs['name']; ?></h6>
             <p>Arebica Luna</p>
         </a>
@@ -266,7 +266,7 @@
                     ?>
                     <div class="custom-card">
                         <div class="custom-card--img">
-                            <a href="<?php echo base_url(); ?>index.php/home/artist_details">
+                            <a href="<?php echo base_url(); ?>home/artist_details">
                                 <img src="<?php echo base_url();  ?>assets/Artist/<?php echo $allArtists['image']; ?>" alt="Nutty Nina" class="card-img--radius-lg">
                             </a>
                         </div>

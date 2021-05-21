@@ -72,7 +72,7 @@
 						foreach($reg as $row){ 
 				
 					?>
-                    <form method="post" action="<?php echo base_url(); ?>index.php/admin/blog/do_update/<?php echo $row['id']; ?>"  enctype="multipart/form-data" class="form-horizontal form-label-left">
+                    <form method="post" action="<?php echo base_url(); ?>admin/blog/do_update/<?php echo $row['id']; ?>"  enctype="multipart/form-data" class="form-horizontal form-label-left">
 					
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Title </label>

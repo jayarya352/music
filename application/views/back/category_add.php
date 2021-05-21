@@ -64,12 +64,12 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
 					<ul class="nav navbar-right panel_toolbox">
-						<li><a href="<?php echo base_url()?>index.php/admin/category/list" class="close-link"><i class="fa fa-plus"></i>Category List</a></li>
+						<li><a href="<?php echo base_url()?>admin/category/list" class="close-link"><i class="fa fa-plus"></i>Category List</a></li>
 					</ul>
                   <div class="x_content">
                     <br />
 					
-                    <form method="post" action="<?php echo base_url();?>index.php/admin/category/do_add"  enctype="multipart/form-data" class="form-horizontal form-label-left">
+                    <form method="post" action="<?php echo base_url();?>admin/category/do_add"  enctype="multipart/form-data" class="form-horizontal form-label-left">
 					<div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Name </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">

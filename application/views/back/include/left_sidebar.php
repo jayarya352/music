@@ -20,39 +20,39 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="<?php echo base_url(); ?>index.php/admin"><i class="fa fa-dashboard"></i> Dashboard </a>
+                  <li><a href="<?php echo base_url(); ?>admin"><i class="fa fa-dashboard"></i> Dashboard </a>
                    
                   </li>
                   <li><a><i class="fa fa-star"></i> Album <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url(); ?>index.php/admin/album">Add Album</a></li>
-                      <li><a href="<?php echo base_url(); ?>index.php/admin/albumList">Album List</a></li>
+                      <li><a href="<?php echo base_url(); ?>admin/album">Add Album</a></li>
+                      <li><a href="<?php echo base_url(); ?>admin/albumList">Album List</a></li>
                     </ul>
                   </li>
 
                   <li><a><i class="fa fa-star"></i> Artist <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url(); ?>index.php/admin/artist">Add Artist</a></li>
-                      <li><a href="<?php echo base_url(); ?>index.php/admin/artistList">Artist List</a></li>
+                      <li><a href="<?php echo base_url(); ?>admin/artist">Add Artist</a></li>
+                      <li><a href="<?php echo base_url(); ?>admin/artistList">Artist List</a></li>
                     </ul>
                   </li>
 
                   <li><a><i class="fa fa-star"></i> Songs <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url(); ?>index.php/admin/song">Add Song</a></li>
-                      <li><a href="<?php echo base_url(); ?>index.php/admin/artistList">Artist List</a></li>
+                      <li><a href="<?php echo base_url(); ?>admin/song">Add Song</a></li>
+                      <li><a href="<?php echo base_url(); ?>admin/artistList">Artist List</a></li>
                     </ul>
                   </li>
 
-          <li><a href="<?php echo base_url(); ?>index.php/admin/userlist"><i class="fa fa-star"></i> User List </a></li>
-				  <li><a href="<?php echo base_url(); ?>index.php/admin/product/list"><i class="fa fa-star"></i> Product List </a></li>
+          <li><a href="<?php echo base_url(); ?>admin/userlist"><i class="fa fa-star"></i> User List </a></li>
+				  <li><a href="<?php echo base_url(); ?>admin/product/list"><i class="fa fa-star"></i> Product List </a></li>
 				  <li><a href="<?php echo base_url(); ?>admin/content/list"><i class="fa fa-star"></i> Manage Content </a></li>
 				  <li><a href="<?php echo base_url(); ?>admin/coupon/list"><i class="fa fa-star"></i> Manage Coupon </a></li>
 				  
 				  <li><a href="<?php echo base_url(); ?>admin/order/list"><i class="fa fa-star"></i> Order </a></li>
 				  <li><a href="<?php echo base_url(); ?>admin/user/list"><i class="fa fa-star"></i> Manage User </a></li>
-          <li><a href="<?php echo base_url(); ?>index.php/admin/package/list"><i class="fa fa-star"></i> Manage Package </a></li>
-          <li><a href="<?php echo base_url(); ?>index.php/admin/agent/list"><i class="fa fa-star"></i> Manage Agent </a></li>
+          <li><a href="<?php echo base_url(); ?>admin/package/list"><i class="fa fa-star"></i> Manage Package </a></li>
+          <li><a href="<?php echo base_url(); ?>admin/agent/list"><i class="fa fa-star"></i> Manage Agent </a></li>
                   
                 </ul>
               </div>

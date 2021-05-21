@@ -60,7 +60,7 @@
                                     <div class="x_content">
                                         <br />
 
-                                        <form method="post" action="<?php echo base_url(); ?>index.php/admin/updateuser/"  enctype="multipart/form-data" class="form-horizontal form-label-left">
+                                        <form method="post" action="<?php echo base_url(); ?>admin/updateuser/"  enctype="multipart/form-data" class="form-horizontal form-label-left">
                                             <input type='hidden' name='hiddenuserid' value="<?php echo $userData[0]['id']; ?>">
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Name </label>
