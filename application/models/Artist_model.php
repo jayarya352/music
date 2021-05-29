@@ -17,4 +17,9 @@ class Artist_model extends CI_Model {
         return $query->result_array();
         
     }
+
+    public function getArtistDetails($table,$artistId = null){
+        $this->db->where('id',$artistId);
+        return $this->db->get($table)->result();
+    }
 }

@@ -116,12 +116,12 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6 pb-4">
                     <div class="custom-card">
                         <div class="custom-card--img">
-                            <a href="artist-details.html">
+                            <a href="<?php echo base_url(); ?>home/artist_details/<?php echo $allArtists['id']; ?>">
                                 <img src="<?php echo base_url();  ?>assets/Artist/<?php echo $allArtists['image']; ?>" alt="Arebica Luna" class="card-img--radius-lg">
                             </a>
                         </div>
 
-                        <a href="artist-details.html" class="custom-card--link mt-2">
+                        <a href="<?php echo base_url(); ?>home/artist_details/<?php echo $allArtists['id']; ?>" class="custom-card--link mt-2">
                             <h6 class="mb-0"><?php echo $allArtists['name']; ?></h6>
                         </a>
                     </div>
