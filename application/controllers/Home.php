@@ -24,8 +24,13 @@ class Home extends CI_Controller {
 		
 	}
 
-	function artist_details(){ 
-		$this->load->view('front/artist_details');
+	function artist_details($artistId = null){ 
+		// echo $artistId; die;
+		$data['getArtistDetail'] = $this->Artist_model->getArtistDetails('artists',$artistId);
+		$data['song'] = $this->Song_model->getAllSongByArtist($artistId);
+		// echo "<pre/>";
+		// print_r($data); die;
+		$this->load->view('front/artist_details',$data);
 	}
 
 	function stations(){ 
