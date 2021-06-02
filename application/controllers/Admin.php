@@ -7,7 +7,10 @@ class Admin extends CI_Controller {
     function __construct() {
 
         parent::__construct();
-
+        $this->load->library('session'); 
+        if ( ! $this->session->userdata('userDetail')){
+            redirect('Login/index');
+        }
         $this->load->database();
         $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
         $this->output->set_header('Pragma: no-cache');
@@ -19,7 +22,7 @@ class Admin extends CI_Controller {
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->library('image_lib');
-        $this->load->library('session'); 
+        
     }
 
     /* index of the vadmin. Default: Dashboard; On No Login Session: Back to login page. */
