@@ -11,6 +11,7 @@ class Home extends CI_Controller {
 		$this->load->model('User_model');
 		$this->load->model('Song_model');
 		$this->load->model('Artist_model');
+		$this->load->model('Playlist_model');
 
 	}
 
@@ -18,7 +19,17 @@ class Home extends CI_Controller {
 	{
 		$data['all_song']=$this->Song_model->getAllsong();  //this function use for get all song...
 		$data['all_artists'] = $this->Artist_model->getArtistsList();
+		$playlists = $this->Playlist_model->getPlaylists();
 		
+		$data['playlists'] = [];
+		foreach($playlists as $key => $playlist){
+			$playlists_songs = $this->Playlist_model->getPlaylistSongs($playlist['id']);
+			$data['playlists'][$key]['name'] = $playlist['name'];
+			$data['playlists'][$key]['id'] = $playlist['id'];
+			$data['playlists'][$key]['value'] = $playlists_songs;
+		}
+
+		// echo "<pre>";  print_r($data); die;
 		$this->load->view('front/index',$data);
 		
 		

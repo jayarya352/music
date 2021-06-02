@@ -282,13 +282,14 @@
             <!-- End | Section -->
 
             <!-- Begin | Section [[ Find at scss/base/core.scss ]] -->
+            <?php foreach($playlists as $playlist){ ?>
             <div class="section">
 
                 <div class="heading">
                     <div class="d-flex flex-wrap align-items-end">
                         <div class="flex-grow-1">
-                            <h4>Top Playlist</h4>
-                            <p>You best to listen</p>
+                            <h4><?php echo $playlist['name']; ?></h4>
+                            
                         </div>
                         <a href="playlist.html" class="btn btn-sm btn-pill btn-air btn-primary">View All</a>
                     </div>
@@ -296,302 +297,19 @@
                 </div>
 
                 <div class="carousel-item-4 arrow-pos-1">
+                    <?php foreach($playlist['value'] as $song){ ?>
                     <div class="custom-card">
                         <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/background/horizontal/1.jpg" alt="DJ Remix" class="card-img--radius-lg">
-                                <span class="bg-blur">DJ Remix</span>
-                            </a>
+                        <a href="javascript:void(0);" class="external" data-audio='{"name": "<?php echo $song['name']; ?>", "artist": "Arebica Luna", "album": "Mummy", "url": "<?php echo base_url();  ?>assets/songs/<?php echo $song['filename']; ?>", "cover_art_url": "<?php echo base_url();  ?>assets/thumbnail/128X128/<?php echo $song['thumbnail_128X128']; ?>"}'>
+                            <img src="<?php echo base_url();  ?>assets/thumbnail/320X320/<?php echo $song['thumbnail_320X320']; ?>" alt="I Love You Mummy" class="card-img--radius-lg">
+                        </a>
                         </div>
                     </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/background/horizontal/2.jpg" alt="Rock Band" class="card-img--radius-lg">
-                                <span class="bg-blur">Rock Band</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/background/horizontal/3.jpg" alt="Solo Special" class="card-img--radius-lg">
-                                <span class="bg-blur">Solo Special</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/background/horizontal/4.jpg" alt="Romantic" class="card-img--radius-lg">
-                                <span class="bg-blur">Romantic</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/background/horizontal/5.jpg" alt="GYM" class="card-img--radius-lg">
-                                <span class="bg-blur">GYM</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/background/horizontal/6.jpg" alt="Retro Special" class="card-img--radius-lg">
-                                <span class="bg-blur">Retro Special</span>
-                            </a>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
 
             </div>
-            <!-- End | Section -->
-
-            <!-- Begin | Section [[ Find at scss/base/core.scss ]] -->
-            <div class="section">
-
-                <div class="heading">
-                    <div class="d-flex flex-wrap align-items-end">
-                        <div class="flex-grow-1">
-                            <h4>Retro Classic</h4>
-                            <p>Old is gold</p>
-                        </div>
-                        <a href="songs.html" class="btn btn-sm btn-pill btn-air btn-primary">View All</a>
-                    </div>
-                    <hr>
-                </div>
-
-                <div class="carousel-item-6 arrow-pos-3">
-                <?php foreach($all_song as $allsongs){
-                    ?>
-
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <div class="custom-card--info">
-                                <ul class="custom-card--labels d-flex">
-                                    <li><span class="badge badge-pill badge-warning"><i class="la la-star"></i></span></li>
-                                </ul>
-                                <div class="dropdown dropdown-icon">
-                                    <a href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="ion-md-more"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li class="dropdown-item">
-                                            <a href="javascript:void(0);" class="dropdown-link favorite">
-                                                <i class="la la-heart-o"></i>
-                                            </a>
-                                        </li>
-                                        <li class="dropdown-item">
-                                            <a href="javascript:void(0);" class="dropdown-link">
-                                                <i class="la la-plus"></i>
-                                            </a>
-                                        </li>
-                                        <li class="dropdown-item">
-                                            <a href="javascript:void(0);" class="dropdown-link">
-                                                <i class="la la-download"></i>
-                                            </a>
-                                        </li>
-                                        <li class="dropdown-item">
-                                            <a href="javascript:void(0);" class="dropdown-link">
-                                                <i class="la la-share-alt"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <a href="javascript:void(0);" class="external" data-audio='{"name": "<?php echo $allsongs['name']; ?>", "artist": "Arebica Luna", "album": "Mummy", "url": "<?php echo base_url();  ?>assets/songs/<?php echo $allsongs['filename']; ?>", "cover_art_url": "<?php echo base_url();  ?>assets/thumbnail/128X128/<?php echo $allsongs['thumbnail_128X128']; ?>"}'>
-                                <img src="<?php echo base_url();  ?>assets/thumbnail/320X320/<?php echo $allsongs['thumbnail_320X320']; ?>" alt="I Love You Mummy" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="song-details.html" class="custom-card--link mt-2">
-                        <h6><?php echo $allsongs['name']; ?></h6>
-            <p>Arebica Luna</p>
-                        </a>
-                    </div>
-                    <?php }  ?> 
-                    
-                </div>
-
-            </div>
-            <!-- End | Section -->
-
-            <!-- Begin | Section [[ Find at scss/base/core.scss ]] -->
-            <div class="section">
-
-                <div class="heading">
-                    <div class="d-flex flex-wrap align-items-end">
-                        <div class="flex-grow-1">
-                            <h4>Radio</h4>
-                            <p>Listen live now</p>
-                        </div>
-                        <a href="stations.html" class="btn btn-sm btn-pill btn-air btn-primary">View All</a>
-                    </div>
-                    <hr>
-                </div>
-
-                <div class="carousel-item-6 arrow-pos-2">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/1.jpg" alt="International" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="javascript:void(0);" class="custom-card--link mt-2">
-                            <h6 class="mb-0">International</h6>
-                        </a>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/2.jpg" alt="Network" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="javascript:void(0);" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Network</h6>
-                        </a>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/3.jpg" alt="Alpha Gamma" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="javascript:void(0);" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Alpha Gamma</h6>
-                        </a>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/4.jpg" alt="Leanne Hutton" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="javascript:void(0);" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Leanne Hutton</h6>
-                        </a>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/5.jpg" alt="K S N F" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="javascript:void(0);" class="custom-card--link mt-2">
-                            <h6 class="mb-0">K S N F</h6>
-                        </a>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/6.jpg" alt="Clay Gandy" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="javascript:void(0);" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Clay Gandy</h6>
-                        </a>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/9.jpg" alt="Get Reehl" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="javascript:void(0);" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Get Reehl</h6>
-                        </a>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/cover/large/10.jpg" alt="Morning one" class="card-img--radius-lg">
-                            </a>
-                        </div>
-
-                        <a href="javascript:void(0);" class="custom-card--link mt-2">
-                            <h6 class="mb-0">Morning one</h6>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-            <!-- End | Section -->
-
-            <!-- Begin | Section [[ Find at scss/base/core.scss ]] -->
-            <div class="section">
-
-                <div class="heading">
-                    <div class="d-flex flex-wrap align-items-end">
-                        <div class="flex-grow-1">
-                            <h4>Genres</h4>
-                            <p>Select you genre</p>
-                        </div>
-                        <a href="genres.html" class="btn btn-sm btn-pill btn-air btn-primary">View All</a>
-                    </div>
-                    <hr>
-                </div>
-
-                <div class="carousel-item-6 arrow-pos-1">
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/background/horizontal/1.jpg" alt="Remix Songs" class="card-img--radius-md">
-                                <span class="bg-blur">Remix Songs</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/background/horizontal/2.jpg" alt="Rock Songs" class="card-img--radius-md">
-                                <span class="bg-blur">Rock Songs</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/background/horizontal/3.jpg" alt="Sufi Songs" class="card-img--radius-md">
-                                <span class="bg-blur">Sufi Songs</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/background/horizontal/4.jpg" alt="Romantic Songs" class="card-img--radius-md">
-                                <span class="bg-blur">Romantic Songs</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/background/horizontal/5.jpg" alt="Sports Songs" class="card-img--radius-md">
-                                <span class="bg-blur">Sports Songs</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="custom-card">
-                        <div class="custom-card--img">
-                            <a href="javascript:void(0);">
-                                <img src="<?php echo base_url();  ?>assets/images/background/horizontal/6.jpg" alt="Old Songs" class="card-img--radius-lg">
-                                <span class="bg-blur">Old Songs</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <?php } ?>
             <!-- End | Section -->
 
         </div>
