@@ -111,7 +111,7 @@
                 </div>
 
                 <div class="carousel-item-6 arrow-pos-3">
-                <?php foreach($all_song as $allsongs){
+                <?php foreach($trending_song as $trending_songs){
                     ?>
                     <div class="custom-card">
                         <div class="custom-card--img">
@@ -147,13 +147,13 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a href="javascript:void(0);" class="external" data-audio='{"name": "<?php echo $allsongs['name']; ?>", "artist": "Arebica Luna", "album": "Mummy", "url": "<?php echo base_url();  ?>assets/songs/<?php echo $allsongs['filename']; ?>", "cover_art_url": "<?php echo base_url();  ?>assets/thumbnail/128X128/<?php echo $allsongs['thumbnail_128X128']; ?>"}'>
-                                <img src="<?php echo base_url();  ?>assets/thumbnail/320X320/<?php echo $allsongs['thumbnail_320X320']; ?>" alt="I Love You Mummy" class="card-img--radius-lg">
+                            <a href="javascript:void(0);" class="external" data-audio='{"name": "<?php echo $trending_songs['name']; ?>", "artist": "Arebica Luna", "album": "Mummy", "url": "<?php echo base_url();  ?>assets/songs/<?php echo $trending_songs['filename']; ?>", "cover_art_url": "<?php echo base_url();  ?>assets/thumbnail/128X128/<?php echo $trending_songs['thumbnail_128X128']; ?>"}'>
+                                <img src="<?php echo base_url();  ?>assets/thumbnail/320X320/<?php echo $trending_songs['thumbnail_320X320']; ?>" alt="I Love You Mummy" class="card-img--radius-lg">
                             </a>
                         </div>
 
-                        <a href="<?php echo base_url(); ?>home/song_details/<?php echo $allsongs['id']; ?>" class="custom-card--link mt-2">
-                            <h6><?php echo $allsongs['name']; ?></h6>
+                        <a href="<?php echo base_url(); ?>home/song_details/<?php echo $trending_songs['id']; ?>" class="custom-card--link mt-2">
+                            <h6><?php echo $trending_songs['name']; ?></h6>
                             <p>Arebica Luna</p>
                         </a>
                     </div>

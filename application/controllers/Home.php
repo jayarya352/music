@@ -18,9 +18,11 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$data['all_song']=$this->Song_model->getAllsong();  //this function use for get all song...
+		$data['trending_song'] = $this->Song_model->getTrendingSong('songs');
 		$data['all_artists'] = $this->Artist_model->getArtistsList();
 		$playlists = $this->Playlist_model->getPlaylists();
-		
+		// echo "<pre>";
+		// print_r($data['trending_song']); die;
 		$data['playlists'] = [];
 		foreach($playlists as $key => $playlist){
 			$playlists_songs = $this->Playlist_model->getPlaylistSongs($playlist['id']);
@@ -54,8 +56,31 @@ class Home extends CI_Controller {
 		$this->load->view('front/song_details',$song_detail);
 	}
 
-	function songs(){ 
-		$data['all_song']=$this->Song_model->getAllsong();
+	function songs($limit=null){ 
+		$num_rows =$this->Song_model->numRows();
+		$this->load->library('pagination');
+
+		$config = [
+			'base_url' => base_url()."home/songs",
+			'total_rows' => $num_rows,
+			'per_page' => 8,
+			'full_tag_open' =>"<ul class='pagination' >",
+			'full_tag_close' =>"</ul>",
+			'next_tag_open' =>"<li class='page-item page-link'> ",
+			'next_tag_close' =>"</li>",
+			'prev_tag_open' =>"<li class='page-item page-link'>",
+			'prev_tag_close' =>"</li>",
+			'num_tag_open' =>"<li class='page-item page-link'>",
+			'num_tag_close' =>"</li>",
+			'cur_tag_open' =>"<li class='active' class='page-item' ><a class='page-link'>",
+			'cur_tag_close' =>"</a></li>"
+		];
+		// $config['base_url'] = base_url()."home/songs";
+		// $config['total_rows'] = $num_rows;
+		// $config['per_page'] = 8;
+
+		$this->pagination->initialize($config);
+		$data['all_song'] = $this->Song_model->getAllsong($config['per_page'],$this->uri->segment(3));
 		$this->load->view('front/songs',$data);
 	}
 

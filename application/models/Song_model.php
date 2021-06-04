@@ -21,10 +21,24 @@ class Song_model extends CI_Model {
         return true;
     }
 
-    public function getAllsong() {  //this query user for get song data..
-        // $this->db->where('status','pending'); 
+    public function getAllsong($limit=null,$offset=null) {  //this query user for get song data..
+        // $this->db->where('status','pending');
+        if(!empty($limit)){
+            $this->db->limit($limit,$offset);
+        } 
         $query=$this->db->get('songs'); 
         return $query->result_array(); }
+    public function numRows(){
+        $query=$this->db->get('songs'); 
+        return $query->num_rows();
+    }
+
+    public function getTrendingSong($table){ //this query user for get trending song..
+        $this->db->limit(10);
+        $this->db->order_by('id','DESC');
+        $query = $this->db->get($table);
+        return $query->result_array();
+    }
 
     public function getAllsong_detail($song_id) {  //this query user for get song details..
         $this->db->where('id',$song_id); 
