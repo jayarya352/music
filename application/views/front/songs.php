@@ -174,9 +174,11 @@
                 
 
                 <?php 
-                } 
-                 echo $this->pagination->create_links();
-                ?>
+                } ?>
+                <div class="col-xl-12 col-lg-4 col-sm-6 pb-4">
+                <?php echo $this->pagination->create_links(); ?>
+                </div>
+            
                 <!-- <nav aria-label="Page navigation example"> -->
   <!-- <ul class="pagination">
     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
