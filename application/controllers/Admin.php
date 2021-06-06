@@ -302,7 +302,7 @@ class Admin extends CI_Controller {
                 }
                 
                 // ********* get resize image path ******** //
-                $thumbnail = $data['upload_thubmnail_data']['raw_name'].'_thumb'.$data['upload_thubmnail_data']['file_ext'];
+                $thumbnail = $data['upload_thubmnail_data']['raw_name'].$data['upload_thubmnail_data']['file_ext'];
                 // $basename = basename($data['upload_thubmnail_data']['file_path']);
                 // $thumbnail_320X320 = str_replace($basename,'320X320',$data['upload_thubmnail_data']['file_path']);
                 // $thumbnail_320X320_path = $thumbnail_320X320.$thumbnail;
@@ -323,7 +323,7 @@ class Admin extends CI_Controller {
                 $this->image_lib->resize();
 
                 // ********* get resize image path ******** //
-                $thumbnail = $data['upload_thubmnail_data']['raw_name'].'_thumb'.$data['upload_thubmnail_data']['file_ext'];
+                $thumbnail = $data['upload_thubmnail_data']['raw_name'].$data['upload_thubmnail_data']['file_ext'];
                 // $basename = basename($data['upload_thubmnail_data']['file_path']);
                 // $thumbnail_128X128 = str_replace($basename,'128X128',$data['upload_thubmnail_data']['file_path']);
                 // $thumbnail_128X128_path = $thumbnail_128X128.$thumbnail;
@@ -428,6 +428,11 @@ class Admin extends CI_Controller {
             $this->db->delete('manage_agent');
             redirect(base_url() . "index.php/admin/agent/list");
         }
+    }
+
+    public function homeplaylist(){
+        echo 'eeel'; die;
+    
     }
 
 }

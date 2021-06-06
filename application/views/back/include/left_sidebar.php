@@ -44,6 +44,7 @@
                     </ul>
                   </li>
 
+                  <li><a href="<?php echo base_url(); ?>admin/homeplaylist"><i class="fa fa-star"></i> Home Playlist </a></li>
           <li><a href="<?php echo base_url(); ?>admin/userlist"><i class="fa fa-star"></i> User List </a></li>
 				  <li><a href="<?php echo base_url(); ?>admin/product/list"><i class="fa fa-star"></i> Product List </a></li>
 				  <li><a href="<?php echo base_url(); ?>admin/content/list"><i class="fa fa-star"></i> Manage Content </a></li>
