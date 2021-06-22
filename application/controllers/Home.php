@@ -72,7 +72,7 @@ class Home extends CI_Controller {
 			'prev_tag_close' =>"</li>",
 			'num_tag_open' =>"<li class='page-item page-link'>",
 			'num_tag_close' =>"</li>",
-			'cur_tag_open' =>"<li class='active' class='page-item' ><a class='page-link'>",
+			'cur_tag_open' =>"<li class='active page-item' ><a class='page-link'>",
 			'cur_tag_close' =>"</a></li>"
 		];
 		// $config['base_url'] = base_url()."home/songs";
