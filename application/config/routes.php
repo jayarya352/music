@@ -55,3 +55,10 @@ $route['translate_uri_dashes'] = FALSE;
 $route['register'] = "register/index";
 $route['registerCreate'] = "register/Create";
 $route['validation'] = 'Form';
+
+
+// API ROUTES
+$route['api/add-user'] = 'Api/UserApiController/addUser';
+
+// Home page routes
+$route['api/home'] = 'Api/HomeApiController/index';
