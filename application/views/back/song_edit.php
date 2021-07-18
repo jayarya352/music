@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Music | Song Add</title>
+        <title>Music | Song Edit</title>
 
         <!-- Bootstrap -->
         <link href="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
                     <div class="">
                         <div class="page-title">
                             <div class="title_left">
-                                <h3>Add Song</h3>
+                                <h3>Edit Song</h3>
                             </div>
 
                         </div>
@@ -73,7 +73,7 @@
                                     <div class="x_content">
                                         <br />
 
-                                        <form method="post" action="<?php echo base_url(); ?>admin/addSong"  enctype="multipart/form-data" class="form-horizontal form-label-left">
+                                        <form method="post" action="<?php echo base_url(); ?>admin/updateSong/<?php echo $songDetail['id']; ?>"  enctype="multipart/form-data" class="form-horizontal form-label-left">
                                            
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Artist Name </label>
@@ -105,7 +105,7 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Song Name </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
 
-                                                    <input type="text" class="form-control col-md-7 col-xs-12" name="song_name" value="" >
+                                                    <input type="text" class="form-control col-md-7 col-xs-12" name="song_name" value="<?php echo $songDetail['name']; ?>" >
                                                 </div>
                                             </div>
 
@@ -161,6 +161,8 @@
                                                     </select>
                                                 </div>
                                             </div>
+
+                                            
                                             
                                             
                                             <div class="ln_solid"></div>

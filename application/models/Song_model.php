@@ -22,12 +22,22 @@ class Song_model extends CI_Model {
     }
 
     public function getAllsong($limit=null,$offset=null) {  //this query user for get song data..
-        // $this->db->where('status','pending');
         if(!empty($limit)){
             $this->db->limit($limit,$offset);
         } 
-        $query=$this->db->get('songs'); 
-        return $query->result_array(); }
+
+        $this->db->select(['songs.*','lyricist.name AS lyricist_name','composer.name as composer_name','musician.name as musician_name' ,'artists.name as artist_name']);
+        $this->db->from('songs');
+        $this->db->join('artists','artists.id=songs.artist_id');
+        $this->db->join('users as lyricist','lyricist.id=songs.lyricist');
+        $this->db->join('users as composer','composer.id=songs.composer');
+        $this->db->join('users as musician','musician.id=songs.music');
+
+
+        // print_r($this->db);  die;
+        $query=$this->db->get(); 
+        return $query->result_array();
+     }
     public function numRows(){
         $query=$this->db->get('songs'); 
         return $query->num_rows();
@@ -43,7 +53,8 @@ class Song_model extends CI_Model {
     public function getAllsong_detail($song_id) {  //this query user for get song details..
         $this->db->where('id',$song_id); 
         $query=$this->db->get('songs'); 
-        return $query->result_array(); }
+        return $query->row_array(); 
+    }
 
     public function getAllSongByArtist($artistId)
     {

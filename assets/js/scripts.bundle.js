@@ -398,6 +398,7 @@ $(function () {
 
         //=> Initialize app slick carousel
         initSlickCarousel: function () {
+            
             AppConfig.slickCarousel('.carousel-item-4', 4, 3, 2, 1);
 
             AppConfig.slickCarousel('.carousel-item-5', 5, 4, 3, 2);
