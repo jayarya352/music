@@ -19,6 +19,7 @@ class Admin extends CI_Controller {
         $this->load->model('Artist_model');
         $this->load->model('Album_model');
         $this->load->model('Song_model');
+        $this->load->model('Playlist_model');
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->library('image_lib');
@@ -224,13 +225,52 @@ class Admin extends CI_Controller {
         $this->load->view('back/artist_list',$data);
     }
 
-    function song(){
-        $data['getArtists'] = $this->Artist_model->getArtistsList();
-        $data['getAlbums'] = $this->Album_model->getAlbumsList();
-        // echo '<pre>'; print_r($data); die;
-        $this->load->view('back/song_add', $data);
+    function song($id = null){
+        if($id == null){
+            $data['getArtists'] = $this->Artist_model->getArtistsList();
+            $data['getAlbums'] = $this->Album_model->getAlbumsList();
+            $data['playlists'] = $this->Playlist_model->getPlaylists();
+            $this->load->view('back/song_add', $data);
+        } else {
+            $data['getArtists'] = $this->Artist_model->getArtistsList();
+            $data['getAlbums'] = $this->Album_model->getAlbumsList();
+            $data['playlists'] = $this->Playlist_model->getPlaylists();
+            $data['songDetail']=$this->Song_model->getAllsong_detail($id);
+
+            $this->load->view('back/song_edit', $data);
+        }
+        
     }
 
+    function songs($limit=null){ 
+		$num_rows =$this->Song_model->numRows();
+		$this->load->library('pagination');
+
+		$config = [
+			'base_url' => base_url()."home/songs",
+			'total_rows' => $num_rows,
+			'per_page' => 8,
+			'full_tag_open' =>"<ul class='pagination' >",
+			'full_tag_close' =>"</ul>",
+			'next_tag_open' =>"<li class='page-item page-link'> ",
+			'next_tag_close' =>"</li>",
+			'prev_tag_open' =>"<li class='page-item page-link'>",
+			'prev_tag_close' =>"</li>",
+			'num_tag_open' =>"<li class='page-item page-link'>",
+			'num_tag_close' =>"</li>",
+			'cur_tag_open' =>"<li class='active' class='page-item' ><a class='page-link'>",
+			'cur_tag_close' =>"</a></li>"
+		];
+		// $config['base_url'] = base_url()."home/songs";
+		// $config['total_rows'] = $num_rows;
+		// $config['per_page'] = 8;
+
+		$this->pagination->initialize($config);
+		$data['all_song'] = $this->Song_model->getAllsong($config['per_page'],$this->uri->segment(3));
+        // echo '<pre>'; print_R($data); die;
+		$this->load->view('back/songs_list',$data);
+	}
+    
     function addSong(){
         $post_data = $this->input->post();
         
@@ -344,6 +384,23 @@ class Admin extends CI_Controller {
 
     }
 
+    function updateSong($songId){
+        $post_data = $this->input->post();
+        // echo "<pre>"; print_R($post_data); die;
+        $playlistData = $post_data['playlist'];
+        // echo "<pre>"; print_R($playlistData); die;
+        foreach($playlistData as $PlaylistId){
+            $data = [
+                "playlist_id" => $PlaylistId,
+                "song_id" => $songId,
+            ];
+            
+            $this->Playlist_model->savePlaylistSong($data);
+        }
+
+        redirect(base_url() . "index.php/admin/songs");
+    }
+
     function package($para1 = '', $para2 = '', $para3 = '') {
         if ($para1 == 'list') {
             $data_page['reg'] = $this->db->query("select * from package order by id desc")->result_array();
@@ -430,9 +487,13 @@ class Admin extends CI_Controller {
         }
     }
 
-    public function homeplaylist(){
-        echo 'eeel'; die;
-    
+    public function addHomeplaylist(){
+        $this->load->view('back/home_playlist_add');
+    }
+
+    public function storeHomePlaylist(){
+        $playlistData = $this->input->post();
+        $this->Playlist_model->savePlaylist($playlistData);
     }
 
 }

@@ -40,11 +40,11 @@
                   <li><a><i class="fa fa-star"></i> Songs <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo base_url(); ?>admin/song">Add Song</a></li>
-                      <li><a href="<?php echo base_url(); ?>admin/artistList">Artist List</a></li>
+                      <li><a href="<?php echo base_url(); ?>admin/songs">Songs List</a></li>
                     </ul>
                   </li>
 
-                  <li><a href="<?php echo base_url(); ?>admin/homeplaylist"><i class="fa fa-star"></i> Home Playlist </a></li>
+                  <li><a href="<?php echo base_url(); ?>admin/addHomeplaylist"><i class="fa fa-star"></i> Home Playlist </a></li>
           <li><a href="<?php echo base_url(); ?>admin/userlist"><i class="fa fa-star"></i> User List </a></li>
 				  <li><a href="<?php echo base_url(); ?>admin/product/list"><i class="fa fa-star"></i> Product List </a></li>
 				  <li><a href="<?php echo base_url(); ?>admin/content/list"><i class="fa fa-star"></i> Manage Content </a></li>

@@ -21,6 +21,7 @@ class Home extends CI_Controller {
 		$data['trending_song'] = $this->Song_model->getTrendingSong('songs');
 		$data['all_artists'] = $this->Artist_model->getArtistsList();
 		$playlists = $this->Playlist_model->getPlaylists();
+		
 		// echo "<pre>";
 		// print_r($data['trending_song']); die;
 		$data['playlists'] = [];
@@ -31,7 +32,7 @@ class Home extends CI_Controller {
 			$data['playlists'][$key]['value'] = $playlists_songs;
 		}
 
-		// echo "<pre>";  print_r($data); die;
+
 		$this->load->view('front/index',$data);
 		
 		
