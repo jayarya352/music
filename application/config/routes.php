@@ -62,3 +62,6 @@ $route['api/add-user'] = 'Api/UserApiController/addUser';
 
 // Home page routes
 $route['api/home'] = 'Api/HomeApiController/index';
+
+// Song page routes
+$route['api/song'] = 'Api/SongApiController/index';

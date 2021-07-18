@@ -17,7 +17,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$data['all_song']=$this->Song_model->getAllsong();  //this function use for get all song...
+		$data['all_song']=$this->Song_model->getAllsong('songs');  //this function use for get all song...
 		$data['trending_song'] = $this->Song_model->getTrendingSong('songs');
 		$data['all_artists'] = $this->Artist_model->getArtistsList();
 		$playlists = $this->Playlist_model->getPlaylists();
