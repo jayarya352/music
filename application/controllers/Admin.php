@@ -23,6 +23,7 @@ class Admin extends CI_Controller {
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->library('image_lib');
+        $this->load->library('session');
         
     }
 
@@ -35,137 +36,6 @@ class Admin extends CI_Controller {
 
     function add() {
         $this->load->view('back/category_add');
-    }
-
-    function category($para1 = '', $para2 = '', $para3 = '') {
-
-        if ($para1 == 'list') {
-            $page_data['reg'] = $this->db->query("select * from category_list order by id desc")->result_array();
-            $this->load->view('back/category_list', $page_data);
-        } else if ($para1 == 'add') {
-            $this->load->view('back/category_add');
-        } else if ($para1 == 'do_add') {
-
-            $data['name'] = $this->input->post('name');
-            $data['description'] = $this->input->post('description');
-            $data['image'] = $this->input->post('image');
-            $data['status'] = $this->input->post('status');
-            $this->db->insert('category_list', $data);
-            redirect(base_url() . "index.php/admin/category/list");
-        } else if ($para1 == 'edit') {
-            $page_data['reg'] = $this->db->query("select * from category_list where id='" . $para2 . "' ")->result_array();
-            $this->load->view('back/category_edit', $page_data);
-        } else if ($para1 == 'do_update') {
-            $data['name'] = $this->input->post('name');
-            $data['description'] = $this->input->post('description');
-            $data['image'] = $this->input->post('image');
-            $data['status'] = $this->input->post('status');
-            $this->db->where('id', $para2);
-            $this->db->update('category_list', $data);
-            redirect(base_url() . "index.php/admin/category/list");
-        } else if ($para1 == 'delete') {
-            $this->db->where('id', $para2);
-            $this->db->delete('category_list');
-            redirect(base_url() . "index.php/admin/category/list");
-        }
-    }
-
-    function subcategory($para1 = '', $para2 = '', $para3 = '') {
-        if ($para1 == 'list') {
-            $page_data['reg'] = $this->db->query("select * from subcategory_list order by id desc")->result_array();
-            $this->load->view('back/subcategory_list', $page_data);
-        } else if ($para1 == 'add') {
-            $this->load->view('back/subcategory_add');
-        } else if ($para1 == 'do_add') {
-            $data['categoryname'] = $this->input->post('c_name');
-            $data['subcategoryname'] = $this->input->post('name');
-            $data['description'] = $this->input->post('description');
-            $data['image'] = $this->input->post('image');
-            $data['status'] = $this->input->post('status');
-            $this->db->insert('subcategory_list', $data);
-            redirect(base_url() . "index.php/admin/subcategory/list");
-        } else if ($para1 == 'edit') {
-            $page_data['reg'] = $this->db->query("select * from subcategory_list where id='" . $para2 . "' ")->result_array();
-            $this->load->view('back/subcategory_edit', $page_data);
-        } else if ($para1 == 'do_update') {
-            $data['categoryname'] = $this->input->post('c_name');
-            $data['name'] = $this->input->post('name');
-            $data['description'] = $this->input->post('description');
-            $data['image'] = $this->input->post('image');
-            $data['status'] = $this->input->post('status');
-            $this->db->where('id', $para2);
-            $this->db->update('subcategory_list', $data);
-            redirect(base_url() . "index.php/admin/subcategory/list");
-        } else if ($para1 == 'delete') {
-            $this->db->where('id', $para2);
-            $this->db->delete('subcategory_list');
-            redirect(base_url() . "index.php/admin/subcategory/list");
-        }
-    }
-
-    function blog($para1 = '', $para2 = '', $para3 = '') {
-        if ($para1 == 'list') {
-            $page_data['reg'] = $this->db->query("select * from blog")->result_array();
-            $this->load->view('back/blog_list', $page_data);
-        } else if ($para1 == 'add') {
-            $this->load->view('back/blog_add');
-        } else if ($para1 == 'do_add') {
-            $data['title'] = $this->input->post('title');
-            $data['slug'] = $this->input->post('slug');
-            $data['short_desc'] = $this->input->post('short_desc');
-            $data['long_desc'] = $this->input->post('long_desc');
-            $data['image'] = $this->input->post('image');
-            $data['reg_date'] = $this->input->post('reg_date');
-            $data['uploaded_by'] = $this->input->post('uploaded');
-            $data['seo_title'] = $this->input->post('seo_title');
-            $data['seo_meta'] = $this->input->post('seo_meta');
-            $data['seo_desc'] = $this->input->post('seo_desc');
-            $data['status'] = $this->input->post('status');
-            $this->db->insert('blog', $data);
-            redirect(base_url() . "index.php/admin/blog/list");
-        } else if ($para1 == 'edit') {
-            $page_data['reg'] = $this->db->query("select * from blog where id='" . $para2 . "' ")->result_array();
-            $this->load->view('back/blog_edit', $page_data);
-        } else if ($para1 == 'do_update') {
-            $data['title'] = $this->input->post('title');
-            $data['slug'] = $this->input->post('slug');
-            $data['short_desc'] = $this->input->post('short_desc');
-            $data['long_desc'] = $this->input->post('long_desc');
-            $data['image'] = $this->input->post('image');
-            $data['reg_date'] = $this->input->post('reg_date');
-            $data['uploaded_by'] = $this->input->post('uploaded');
-            $data['seo_title'] = $this->input->post('seo_title');
-            $data['seo_meta'] = $this->input->post('seo_meta');
-            $data['seo_desc'] = $this->input->post('seo_desc');
-            $data['status'] = $this->input->post('status');
-            $this->db->where('id', $para2);
-            $this->db->update('blog', $data);
-            redirect(base_url() . "index.php/admin/blog/list");
-        } else if ($para1 = 'delete') {
-            $this->db->where('id', $para2);
-            $this->db->delete('blog');
-            redirect(base_url() . "index.php/admin/blog/list");
-        }
-    }
-
-    function userList() {
-        $data['getUserList'] = $this->User_model->usersList(); //get users list.
-//        print_r($getUsersList); die;
-        $this->load->view('back/user_list', $data);
-    }
-    
-    function editUser($userId=''){
-        $data['userData'] = $this->User_model->userData($userId); //get users list.
-        $this->load->view('back/user_edit',$data);
-    }
-    
-    function updateUser(){
-        
-        $userData = $this->input->post();
-        
-        $this->User_model->updateUserData($userData); //update user data
-        
-        redirect(base_url() . "index.php/admin/userlist");
     }
 
     function album(){
@@ -202,17 +72,17 @@ class Admin extends CI_Controller {
             $error = array('error' => $this->upload->display_errors());
             
             $this->session->set_flashdata('error',$error['error']);
-            redirect(base_url() . "index.php/admin/addArtist");
+            redirect(base_url() . "admin/addArtist");
         } else {
             $this->Artist_model->saveArtist($artistData,$config['file_name']);
-            redirect(base_url() . "index.php/admin/artistList");
+            redirect(base_url() . "admin/artistList");
         }
     }
 
     function addAlbum(){
         $albumData = $this->input->post();
         $this->Album_model->saveAlbum($albumData);
-        redirect(base_url() . "index.php/admin/albumList");
+        redirect(base_url() . "admin/albumList");
     }
 
     function albumList(){
@@ -226,12 +96,22 @@ class Admin extends CI_Controller {
     }
 
     function song($id = null){
+        $lyricist = 3;
+        $composer = 4;
+        $music    = 5;
         if($id == null){
-            $data['getArtists'] = $this->Artist_model->getArtistsList();
-            $data['getAlbums'] = $this->Album_model->getAlbumsList();
-            $data['playlists'] = $this->Playlist_model->getPlaylists();
+           
+            $data['getLyricist']    = $this->User_model->getAllUserType('users',$lyricist);
+            $data['getComposer']    = $this->User_model->getAllUserType('users',$composer);
+            $data['getMusic']    = $this->User_model->getAllUserType('users',$music);
+            $data['getArtists']     = $this->Artist_model->getArtistsList();
+            $data['getAlbums']      = $this->Album_model->getAlbumsList();
+            $data['playlists']      = $this->Playlist_model->getPlaylists();
             $this->load->view('back/song_add', $data);
         } else {
+            $data['getLyricist']    = $this->User_model->getAllUserType('users',$lyricist);
+            $data['getComposer']    = $this->User_model->getAllUserType('users',$composer);
+            $data['getMusic']    = $this->User_model->getAllUserType('users',$music);
             $data['getArtists'] = $this->Artist_model->getArtistsList();
             $data['getAlbums'] = $this->Album_model->getAlbumsList();
             $data['playlists'] = $this->Playlist_model->getPlaylists();
@@ -243,31 +123,32 @@ class Admin extends CI_Controller {
     }
 
     function songs($limit=null){ 
-		$num_rows =$this->Song_model->numRows();
-		$this->load->library('pagination');
+		// $num_rows =$this->Song_model->numRows();
+		// $this->load->library('pagination');
 
-		$config = [
-			'base_url' => base_url()."home/songs",
-			'total_rows' => $num_rows,
-			'per_page' => 8,
-			'full_tag_open' =>"<ul class='pagination' >",
-			'full_tag_close' =>"</ul>",
-			'next_tag_open' =>"<li class='page-item page-link'> ",
-			'next_tag_close' =>"</li>",
-			'prev_tag_open' =>"<li class='page-item page-link'>",
-			'prev_tag_close' =>"</li>",
-			'num_tag_open' =>"<li class='page-item page-link'>",
-			'num_tag_close' =>"</li>",
-			'cur_tag_open' =>"<li class='active' class='page-item' ><a class='page-link'>",
-			'cur_tag_close' =>"</a></li>"
-		];
+		// $config = [
+		// 	'base_url' => base_url()."home/songs",
+		// 	'total_rows' => $num_rows,
+		// 	'per_page' => 8,
+		// 	'full_tag_open' =>"<ul class='pagination' >",
+		// 	'full_tag_close' =>"</ul>",
+		// 	'next_tag_open' =>"<li class='page-item page-link'> ",
+		// 	'next_tag_close' =>"</li>",
+		// 	'prev_tag_open' =>"<li class='page-item page-link'>",
+		// 	'prev_tag_close' =>"</li>",
+		// 	'num_tag_open' =>"<li class='page-item page-link'>",
+		// 	'num_tag_close' =>"</li>",
+		// 	'cur_tag_open' =>"<li class='active' class='page-item' ><a class='page-link'>",
+		// 	'cur_tag_close' =>"</a></li>"
+		// ];
 		// $config['base_url'] = base_url()."home/songs";
 		// $config['total_rows'] = $num_rows;
 		// $config['per_page'] = 8;
 
-		$this->pagination->initialize($config);
-		$data['all_song'] = $this->Song_model->getAllsong($config['per_page'],$this->uri->segment(3));
+		// $this->pagination->initialize($config);
+		// $data['all_song'] = $this->Song_model->getAllsong($config['per_page'],$this->uri->segment(3));
         // echo '<pre>'; print_R($data); die;
+        $data['all_song'] = $this->Song_model->getAllsong();
 		$this->load->view('back/songs_list',$data);
 	}
     
@@ -301,7 +182,7 @@ class Admin extends CI_Controller {
             $error = array('error' => $this->upload->display_errors());
             // print_r($error); die;
             $this->session->set_flashdata('error',$error['error']);
-            redirect(base_url() . "index.php/admin/song");
+            redirect(base_url() . "admin/song");
         }
         else {
             $data = array('upload_data' => $this->upload->data());
@@ -320,7 +201,7 @@ class Admin extends CI_Controller {
                 $error = array('error' => $this->upload->display_errors());
                 
                 $this->session->set_flashdata('error',$error['error']);
-                redirect(base_url() . "index.php/admin/song");
+                redirect(base_url() . "admin/song");
             } else {
                 
                 $data = array('upload_thubmnail_data' => $this->upload->data());
@@ -375,7 +256,7 @@ class Admin extends CI_Controller {
                 $post_data['song_file'] = $up_audio;
                 $this->Song_model->songInsertdata($post_data);
                 $this->session->set_flashdata('success', 'Song details save successfully...');
-                redirect(base_url() . "index.php/admin/song");
+                redirect(base_url() . "admin/song");
                 // ******* end save song details and thumbnail in db ******* //
             }
         }
@@ -398,94 +279,9 @@ class Admin extends CI_Controller {
             $this->Playlist_model->savePlaylistSong($data);
         }
 
-        redirect(base_url() . "index.php/admin/songs");
+        redirect(base_url() . "admin/songs");
     }
 
-    function package($para1 = '', $para2 = '', $para3 = '') {
-        if ($para1 == 'list') {
-            $data_page['reg'] = $this->db->query("select * from package order by id desc")->result_array();
-            $this->load->view('back/package_list', $data_page);
-        } else if ($para1 == 'add') {
-            $this->load->view('back/package_add');
-        } else if ($para1 == 'do_add') {
-            $data['name'] = $this->input->post('name');
-            $data['duration'] = $this->input->post('duration');
-            $data['price'] = $this->input->post('price');
-            $data['name1'] = $this->input->post('name1');
-            $data['name2'] = $this->input->post('name2');
-            $data['value1'] = $this->input->post('value1');
-            $data['value2'] = $this->input->post('value2');
-            $data['description'] = $this->input->post('description');
-            $data['image'] = $this->input->post('image');
-            $data['status'] = $this->input->post('status');
-            $this->db->insert('package', $data);
-            redirect(base_url() . "index.php/admin/package/list");
-        } else if ($para1 == 'edit') {
-            $data_page['reg'] = $this->db->query("select * from package where id='" . $para2 . "' ")->result_array();
-            $this->load->view('back/package_edit', $data_page);
-        } else if ($para1 == 'do_update') {
-            $data['name'] = $this->input->post('name');
-            $data['duration'] = $this->input->post('duration');
-            $data['price'] = $this->input->post('price');
-            $data['name1'] = $this->input->post('name1');
-            $data['name2'] = $this->input->post('name2');
-            $data['value1'] = $this->input->post('value1');
-            $data['value2'] = $this->input->post('value2');
-            $data['description'] = $this->input->post('description');
-            $data['image'] = $this->input->post('image');
-            $data['status'] = $this->input->post('status');
-            $this->db->where('id', $para2);
-            $this->db->update('package', $data);
-            redirect(base_url() . "index.php/admin/package/list");
-        } else if ($para1 = 'delete') {
-            $this->db->where('id', $para2);
-            $this->db->delete('package');
-            redirect(base_url() . "index.php/admin/package/list");
-        }
-    }
-
-    function agent($para1 = '', $para2 = '', $para3 = '') {
-        if ($para1 == 'list') {
-            $data_page['reg'] = $this->db->query("select * from manage_agent order by id desc")->result_array();
-            $this->load->view('back/agent_list', $data_page);
-        } else if ($para1 == 'add') {
-            $this->load->view('back/agent_add');
-        } else if ($para1 == 'do_add') {
-            $data['name'] = $this->input->post('name');
-            $data['email'] = $this->input->post('email');
-            $data['password'] = $this->input->post('password');
-            $data['mobile'] = $this->input->post('mobile');
-            $data['address'] = $this->input->post('address');
-            $data['country'] = $this->input->post('country');
-            $data['state'] = $this->input->post('state');
-            $data['city'] = $this->input->post('city');
-            $data['commission'] = $this->input->post('commission');
-            $data['status'] = $this->input->post('status');
-            $this->db->insert('manage_agent', $data);
-            redirect(base_url() . "index.php/admin/agent/list");
-        } else if ($para1 == 'edit') {
-            $data_page['reg'] = $this->db->query("select * from manage_agent where id='" . $para2 . "' ")->result_array();
-            $this->load->view('back/agent_edit', $data_page);
-        } else if ($para1 == 'do_update') {
-            $data['name'] = $this->input->post('name');
-            $data['email'] = $this->input->post('email');
-            $data['password'] = $this->input->post('password');
-            $data['mobile'] = $this->input->post('mobile');
-            $data['address'] = $this->input->post('address');
-            $data['country'] = $this->input->post('country');
-            $data['state'] = $this->input->post('state');
-            $data['city'] = $this->input->post('city');
-            $data['commission'] = $this->input->post('commission');
-            $data['status'] = $this->input->post('status');
-            $this->db->where('id', $para2);
-            $this->db->update('manage_agent', $data);
-            redirect(base_url() . "index.php/admin/agent/list");
-        } else if ($para1 = 'delete') {
-            $this->db->where('id', $para2);
-            $this->db->delete('manage_agent');
-            redirect(base_url() . "index.php/admin/agent/list");
-        }
-    }
 
     public function addHomeplaylist(){
         $this->load->view('back/home_playlist_add');
@@ -494,6 +290,48 @@ class Admin extends CI_Controller {
     public function storeHomePlaylist(){
         $playlistData = $this->input->post();
         $this->Playlist_model->savePlaylist($playlistData);
+    }
+
+
+    function userss($para1 = '', $para2 = '', $para3 = '') {
+        if ($para1 == 'list') {
+            $data_page['reg'] = $this->db->query("select * from users order by id desc")->result_array();
+            $this->load->view('back/user_list', $data_page);
+        } else if ($para1 == 'add') {
+            $this->load->view('back/user_add');
+        } else if ($para1 == 'do_add') {
+            $data['name'] = $this->input->post('name');
+            $data['email'] = $this->input->post('email');
+            $data['password'] = $this->input->post('password');
+            $data['mobile'] = $this->input->post('mobile');
+            $data['address'] = $this->input->post('address');
+            $data['country'] = $this->input->post('country');
+            $data['state'] = $this->input->post('state');
+            $data['city'] = $this->input->post('city');
+            $data['status'] = $this->input->post('status');
+            $this->db->insert('manage_agent', $data);
+            redirect(base_url() . "admin/user/list");
+        } else if ($para1 == 'edit') {
+            $data_page['reg'] = $this->db->query("select * from user where id='" . $para2 . "' ")->result_array();
+            $this->load->view('back/user_edit', $data_page);
+        } else if ($para1 == 'do_update') {
+            $data['name'] = $this->input->post('name');
+            $data['email'] = $this->input->post('email');
+            $data['password'] = $this->input->post('password');
+            $data['mobile'] = $this->input->post('mobile');
+            $data['address'] = $this->input->post('address');
+            $data['country'] = $this->input->post('country');
+            $data['state'] = $this->input->post('state');
+            $data['city'] = $this->input->post('city');
+            $data['status'] = $this->input->post('status');
+            $this->db->where('id', $para2);
+            $this->db->update('user', $data);
+            redirect(base_url() . "admin/user/list");
+        } else if ($para1 = 'delete') {
+            $this->db->where('id', $para2);
+            $this->db->delete('user');
+            redirect(base_url() . "admin/user/list");
+        }
     }
 
 }

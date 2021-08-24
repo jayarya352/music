@@ -28,15 +28,12 @@ class User_model extends CI_Model {
         $select['get_data']=$this->db->query("select * from users where email='".$email."' and password='".$pass."' "); // this query use for match email and password from database.
         //echo "select * from users where email='".$email."' and password='".$pass."'"; die;
          return $select['get_data']->result_array(); // this function will return total number of rows.
-        // if($num >=1){
-        //     return true;
-        // }else{
-        //     return false;
-        // }
+       
     }
     
     public function usersList(){
-        $query = $this->db->query("Select * from users");
+        $this->db->order_by('id','DESC');
+        $query = $this->db->query("Select * from users order by id desc");
         return $query->result_array();
     }
     
@@ -49,6 +46,23 @@ class User_model extends CI_Model {
         
         $query = $this->db->query("update users set isActive = '".(int)$userData['status']."' where id='".(int)$userData['hiddenuserid']."' ");
         return true;
+    }
+
+    public function useradd($table,$data){
+        return $this->db->insert($table,$data);
+    }
+
+    public function userRole($table){
+        $this->db->order_by('id','DESC');
+        $this->db->where('status',1);
+        return $this->db->get($table)->result();
+    }
+
+    public function getAllUserType($table,$whereUserType){
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->where('role_id', $whereUserType);
+        return $this->db->get()->result();
     }
 
     
