@@ -100,10 +100,9 @@ class Admin extends CI_Controller {
         $composer = 4;
         $music    = 5;
         if($id == null){
-           
             $data['getLyricist']    = $this->User_model->getAllUserType('users',$lyricist);
             $data['getComposer']    = $this->User_model->getAllUserType('users',$composer);
-            $data['getMusic']    = $this->User_model->getAllUserType('users',$music);
+            $data['getMusic']       = $this->User_model->getAllUserType('users',$music);
             $data['getArtists']     = $this->Artist_model->getArtistsList();
             $data['getAlbums']      = $this->Album_model->getAlbumsList();
             $data['playlists']      = $this->Playlist_model->getPlaylists();
@@ -111,15 +110,13 @@ class Admin extends CI_Controller {
         } else {
             $data['getLyricist']    = $this->User_model->getAllUserType('users',$lyricist);
             $data['getComposer']    = $this->User_model->getAllUserType('users',$composer);
-            $data['getMusic']    = $this->User_model->getAllUserType('users',$music);
-            $data['getArtists'] = $this->Artist_model->getArtistsList();
-            $data['getAlbums'] = $this->Album_model->getAlbumsList();
-            $data['playlists'] = $this->Playlist_model->getPlaylists();
-            $data['songDetail']=$this->Song_model->getAllsong_detail($id);
-
+            $data['getMusic']       = $this->User_model->getAllUserType('users',$music);
+            $data['getArtists']     = $this->Artist_model->getArtistsList();
+            $data['getAlbums']      = $this->Album_model->getAlbumsList();
+            $data['playlists']      = $this->Playlist_model->getPlaylists();
+            $data['songDetail']     = $this->Song_model->getAllsong_detail($id);
             $this->load->view('back/song_edit', $data);
-        }
-        
+        }  
     }
 
     function songs($limit=null){ 

@@ -13,13 +13,13 @@ class User extends CI_Controller {
 
     function userList() {
         $getUser = $this->User_model->usersList(); //get users list.
-        echo "<pre>";
-        print_r($getUser[0]['role_id']);
+        // echo "<pre>";
+        // print_r($getUser[0]['role_id']);
         foreach($getUser as $key => $user){
-            echo $user['role_id'];
+            // echo $user['role_id'];
         }
         
-        die;
+        // die;
         $data['getUserList'] = $getUser;
         $this->load->view('back/user_list', $data);
     }
