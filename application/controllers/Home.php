@@ -17,7 +17,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$data['all_song']=$this->Song_model->getAllsong();  //this function use for get all song...
+		$data['all_song']=$this->Song_model->getAllsong('songs');  //this function use for get all song...
 		$data['trending_song'] = $this->Song_model->getTrendingSong('songs');
 		$data['all_artists'] = $this->Artist_model->getArtistsList();
 		$playlists = $this->Playlist_model->getPlaylists();
@@ -73,7 +73,7 @@ class Home extends CI_Controller {
 			'prev_tag_close' =>"</li>",
 			'num_tag_open' =>"<li class='page-item page-link'>",
 			'num_tag_close' =>"</li>",
-			'cur_tag_open' =>"<li class='active' class='page-item' ><a class='page-link'>",
+			'cur_tag_open' =>"<li class='active page-item' ><a class='page-link'>",
 			'cur_tag_close' =>"</a></li>"
 		];
 		// $config['base_url'] = base_url()."home/songs";

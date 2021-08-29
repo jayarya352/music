@@ -1,20 +1,50 @@
- <div class="navbar nav_title" style="border: 0;">
+<!DOCTYPE html>
+<html lang="en">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Music | User Add</title>
+
+        <!-- Bootstrap -->
+        <link href="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="<?php echo base_url(); ?>assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <!-- NProgress -->
+        <link href="<?php echo base_url(); ?>assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+        <!-- iCheck -->
+        <link href="<?php echo base_url(); ?>assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+        <!-- Datatables -->
+        <link href="<?php echo base_url(); ?>assets/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom Theme Style -->
+        <link href="<?php echo base_url(); ?>assets/build/css/custom.min.css" rel="stylesheet">
+    </head>
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
               <a href="#" class="site_title"> <span>Music</span></a>
             </div>
-
             <div class="clearfix"></div>
- <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
                 <img src="<?php echo base_url(); ?>assets/images/picture.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
-                
+                <span>Welcome,</span>  
               </div>
             </div>
-            <!-- /menu profile quick info -->
-
             <br />
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
@@ -44,34 +74,18 @@
                     </ul>
                   </li>
 
+                  <li><a><i class="fa fa-star"></i> User <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?php echo base_url(); ?>user/userAdd">Add User</a></li>
+                      <li><a href="<?php echo base_url(); ?>user/userlist">Users List</a></li>
+                    </ul>
+                  </li>
                   <li><a href="<?php echo base_url(); ?>admin/addHomeplaylist"><i class="fa fa-star"></i> Home Playlist </a></li>
-          <li><a href="<?php echo base_url(); ?>admin/userlist"><i class="fa fa-star"></i> User List </a></li>
-				  <li><a href="<?php echo base_url(); ?>admin/product/list"><i class="fa fa-star"></i> Product List </a></li>
-				  <li><a href="<?php echo base_url(); ?>admin/content/list"><i class="fa fa-star"></i> Manage Content </a></li>
-				  <li><a href="<?php echo base_url(); ?>admin/coupon/list"><i class="fa fa-star"></i> Manage Coupon </a></li>
-				  
-				  <li><a href="<?php echo base_url(); ?>admin/order/list"><i class="fa fa-star"></i> Order </a></li>
-				  <li><a href="<?php echo base_url(); ?>admin/user/list"><i class="fa fa-star"></i> Manage User </a></li>
-          <li><a href="<?php echo base_url(); ?>admin/package/list"><i class="fa fa-star"></i> Manage Package </a></li>
-          <li><a href="<?php echo base_url(); ?>admin/agent/list"><i class="fa fa-star"></i> Manage Agent </a></li>
-                  
                 </ul>
               </div>
 
             </div>
-			<!-- /menu footer buttons 
-            <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
-            </div>
-             /menu footer buttons -->
+		
+
+                    </div>
+                </div>

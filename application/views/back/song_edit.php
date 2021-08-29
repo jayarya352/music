@@ -1,43 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- Meta, title, CSS, favicons, etc. -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Music | Song Edit</title>
-
-        <!-- Bootstrap -->
-        <link href="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Font Awesome -->
-        <link href="<?php echo base_url(); ?>assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <!-- NProgress -->
-        <link href="<?php echo base_url(); ?>assets/vendors/nprogress/nprogress.css" rel="stylesheet">
-        <!-- iCheck -->
-        <link href="<?php echo base_url(); ?>assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-        <!-- Datatables -->
-        <link href="<?php echo base_url(); ?>assets/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-
-        <!-- Custom Theme Style -->
-        <link href="<?php echo base_url(); ?>assets/build/css/custom.min.css" rel="stylesheet">
-    </head>
-
-    <body class="nav-md">
-        <div class="container body">
-            <div class="main_container">
-                <div class="col-md-3 left_col">
-                    <div class="left_col scroll-view">
-                        <?php include('include/left_sidebar.php'); ?>
-
-                    </div>
-                </div>
+<?php include('include/left_sidebar.php'); ?>
 
                 <!-- top navigation -->
                 <?php include('include/header.php'); ?>
@@ -113,7 +74,13 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Lyricist </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
 
-                                                    <input type="text" class="form-control col-md-7 col-xs-12" name="lyricist" value="" >
+                                                    <!-- <input type="text" class="form-control col-md-7 col-xs-12" name="lyricist" value="" > -->
+                                                    <select name="lyricist" class="form-control">
+                                                        <option>Choose Lyricist</option>
+                                                        <?php foreach($getLyricist as $allLyricist){?>
+                                                            <option value="<?php echo $allLyricist->id; ?>" <?php if($songDetail['lyricist']==$allLyricist->id){ echo "selected"; } ?> ><?php echo $allLyricist->name; ?></option>
+                                                        <?php } ?>
+                                                    </select>
                                                 </div>
                                             </div>
 
@@ -121,7 +88,13 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Composer </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
 
-                                                    <input type="text" class="form-control col-md-7 col-xs-12" name="composer" value="" >
+                                                    <!-- <input type="text" class="form-control col-md-7 col-xs-12" name="composer" value="" > -->
+                                                    <select name="composer" class="form-control">
+                                                        <option>Choose Composer</option>
+                                                        <?php foreach($getComposer as $allComposer){?>
+                                                            <option value="<?php echo $allComposer->id; ?>" <?php if($songDetail['composer']==$allComposer->id){ echo "selected"; } ?>><?php echo $allComposer->name; ?></option>
+                                                        <?php } ?>
+                                                    </select>
                                                 </div>
                                             </div>
 
@@ -129,7 +102,13 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Music </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
 
-                                                    <input type="text" class="form-control col-md-7 col-xs-12" name="music" value="" >
+                                                    <!-- <input type="text" class="form-control col-md-7 col-xs-12" name="music" value="" > -->
+                                                    <select name="music" class="form-control">
+                                                        <option>Choose Music</option>
+                                                        <?php foreach($getMusic as $allMusic){?>
+                                                            <option value="<?php echo $allMusic->id; ?>" <?php if($songDetail['music']==$allMusic->id){ echo "selected"; } ?> ><?php echo $allMusic->name; ?></option>
+                                                        <?php } ?>
+                                                    </select>
                                                 </div>
                                             </div>
 
@@ -137,7 +116,9 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Upload Song </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
 
-                                                    <input type="file" class="form-control col-md-7 col-xs-12" name="song_file" value="" >
+                                                    <input type="file" class="form-control col-md-7 col-xs-12" name="song_file">
+                                                    <img src="<?=base_url('assets/thumbnail/320X320/'.$songDetail['thumbnail_320X320']);?>" alt="" height="100px" width="100px">
+                                                    <img src="<?=base_url('assets/thumbnail/128X128/'.$songDetail['thumbnail_128X128']);?>" alt="" height="100px" width="100px">
                                                 </div>
                                             </div>
 
@@ -189,34 +170,4 @@
             </div>
         </div>
 
-        <!-- jQuery -->
-        <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="<?php echo base_url(); ?>assets/vendors/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap -->
-        <script src="<?php echo base_url(); ?>assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- FastClick -->
-        <script src="<?php echo base_url(); ?>assets/vendors/fastclick/lib/fastclick.js"></script>
-        <!-- NProgress -->
-        <script src="<?php echo base_url(); ?>assets/vendors/nprogress/nprogress.js"></script>
-        <!-- iCheck -->
-        <script src="<?php echo base_url(); ?>assets/vendors/iCheck/icheck.min.js"></script>
-        <!-- Datatables -->
-        <script src="<?php echo base_url(); ?>assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-        <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/vendors/jszip/dist/jszip.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/vendors/pdfmake/build/pdfmake.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/vendors/pdfmake/build/vfs_fonts.js"></script>
-
-        <!-- Custom Theme Scripts -->
-        <script src="<?php echo base_url(); ?>assets/build/js/custom.min.js"></script>
-    </body>
-</html>
+        <?php include('include/footer.php'); ?>
