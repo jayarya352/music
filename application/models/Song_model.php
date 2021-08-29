@@ -65,5 +65,15 @@ class Song_model extends CI_Model {
         $query = $this->db->get()->result_array();
         return $query;
     }
+
+    public function getSongsByParam($param){
+        $this->db->select('*');
+        $this->db->from('playlists');
+        $this->db->join('playlists_songs','playlists.id=playlists_songs.playlist_id');
+        $this->db->join('songs','songs.id=playlists_songs.song_id');
+        $this->db->where('playlists.slug',$param);
+        $query = $this->db->get()->result_array();
+        return $query;
+    }
     
 }
