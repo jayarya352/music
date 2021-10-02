@@ -26,6 +26,15 @@ class SongsApiController extends RestController{
             ->set_status_header(200)
             ->set_output(json_encode($data));
     }
+
+    public function songdetails_get(){
+        
+        $data['data'] = $this->Song_model->getAllsong_detail('songs', @$_GET['id']);
+        return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(200)
+                ->set_output(json_encode($data));
+    }
 }
 
 
