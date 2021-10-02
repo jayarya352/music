@@ -19,7 +19,7 @@ class SongsApiController extends RestController{
     public function index_get(){
         $param = $this->input->get('name');
         
-        $data['songs'] = $this->Song_model->getSongsByParam($param);
+        $data['data'] = $this->Song_model->getSongsByParam($param);
         
         return $this->output
             ->set_content_type('application/json')

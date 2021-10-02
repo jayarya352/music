@@ -65,3 +65,12 @@ $route['api/home'] = 'Api/HomeApiController/index';
 
 // Songs page routes
 $route['api/songs'] = 'Api/SongsApiController/index';
+
+// Song Details page routes
+$route['api/songdetails'] = 'Api/SongDetailApiController/index';
+
+// login page routes
+$route['api/login'] = 'Api/LoingApiController/index';
+
+// Registration page routes
+$route['api/registration'] = 'Api/RegistrationApiController/index';

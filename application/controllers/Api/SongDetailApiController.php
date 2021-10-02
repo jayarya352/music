@@ -17,7 +17,7 @@ class SongDetailApiController extends RestController{
     }
     public function index_get(){
         
-        $data['SongDetails'] = $this->Song_model->getAllsong_detail('songs', @$_GET['id']);
+        $data['data'] = $this->Song_model->getAllsong_detail('songs', @$_GET['id']);
         // return $this->output
         //     ->set_content_type('application/json')
         //     ->set_status_header(200)
