@@ -50,10 +50,10 @@ class Song_model extends CI_Model {
         return $query->result_array();
     }
 
-    public function getAllsong_detail($song_id) {  //this query user for get song details..
+    public function getAllsong_detail($table, $song_id) {  //this query user for get song details..
         $this->db->where('id',$song_id); 
-        $query=$this->db->get('songs'); 
-        return $query->row_array(); 
+        $query=$this->db->get($table); 
+        return $query->result();
     }
 
     public function getAllSongByArtist($artistId)

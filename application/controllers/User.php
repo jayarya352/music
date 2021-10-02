@@ -25,7 +25,10 @@ class User extends CI_Controller {
     }
     
     function editUser($userId=''){
+        $data['userRole1'] = $this->User_model->userRole('role_user');
         $data['userData'] = $this->User_model->userData($userId); //get users list.
+        $data['userRole'] = explode(',', $data['userData'][0]['role_id']);
+        // print_R($data['userRole1']); die;
         $this->load->view('back/user_edit',$data);
     }
 
@@ -40,6 +43,8 @@ class User extends CI_Controller {
               'email'       => $this->input->post('email'),
               'password'    => $this->input->post('password'),
               'phone'       => $this->input->post('phone'),
+              'gender'      => $this->input->post('gender'),
+              'dob'         => $this->input->post('dob'),
               'role_id'     => $role,
               'isActive'    => 1,
               

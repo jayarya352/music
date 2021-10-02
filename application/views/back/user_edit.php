@@ -40,12 +40,54 @@
                                             </div>
                                             
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Phone </label>
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Phone Number </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
 
                                                     <input type="text" class="form-control col-md-7 col-xs-12" name="phone" value="<?php echo $userData[0]['phone']; ?>" >
                                                 </div>
                                             </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Gender">Gender</label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="gender" id="gender1" value="male">
+                                                    <label class="form-check-label" for="gender1">
+                                                        Male
+                                                    </label>
+                                                    <input class="form-check-input" type="radio" name="gender" id="gender1" value="female">
+                                                    <label class="form-check-label" for="gender1">
+                                                        Female
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dob">Date Of Birth</label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                                    <input type="date" class="form-control col-md-7 col-xs-12" name="dob"   >
+                                                </div>
+                                            </div>
+                                            
+                                                <?php if($userRole1){ ?>
+                                             <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">User Role</label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <?php foreach($userRole1 as $role){ 
+                                                        if(!empty($userRole)){ foreach($userRole as $roleid){ if($role->id==$roleid){ ?>
+                                                        <input class="form-check-input" type="checkbox" name="user_role[]" value="<?php echo $role->id; ?>" <?php if($role->id == $roleid){  echo "checked"; } ?> >
+                                                        <label class="form-check-label" for="user_role"><?php echo $role->name; ?></label>&nbsp;
+                                                    <?php }else{    ?>
+                                                        <input class="form-check-input" type="checkbox" name="user_role[]" value="<?php echo $role->id; ?>"  >
+                                                        <label class="form-check-label" for="user_role"><?php echo $role->name; ?></label>&nbsp;
+                                                        <?php } } } } ?>
+                                                    <!-- <input type="radio" name="status" value="0" >Deactive -->
+
+                                                </div>
+                                            </div>
+                                            <?php } ?>
                                             
 
                                              <div class="form-group">

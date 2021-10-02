@@ -61,6 +61,29 @@
                                                     <input type="number" class="form-control col-md-7 col-xs-12" name="phone"   >
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Gender">Gender</label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="gender" id="gender1" value="male">
+                                                    <label class="form-check-label" for="gender1">
+                                                        Male
+                                                    </label>
+                                                    <input class="form-check-input" type="radio" name="gender" id="gender1" value="female">
+                                                    <label class="form-check-label" for="gender1">
+                                                        Female
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dob">Date Of Birth</label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                                    <input type="date" class="form-control col-md-7 col-xs-12" name="dob"   >
+                                                </div>
+                                            </div>
                                             
                                                 <?php if($userRole){ ?>
                                              <div class="form-group">

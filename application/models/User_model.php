@@ -11,13 +11,7 @@ class User_model extends CI_Model {
     public function saveRecord($data){ // this function will store data in db.
         $record = array();
         if(!empty($data)){
-            $record = [
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => $data['password'],
-            ];
-            
-            $this->db->insert('users', $record);
+            $this->db->insert('users', $data);
             return true;
         }
         
@@ -61,8 +55,10 @@ class User_model extends CI_Model {
     public function getAllUserType($table,$whereUserType){
         $this->db->select('*');
         $this->db->from($table);
-        $this->db->where('role_id', $whereUserType);
+        $this->db->where('find_in_set("'.$whereUserType.'", role_id) <> 0');
         return $this->db->get()->result();
+        // print_R($this->db->last_query());
+        // die;
     }
 
     
