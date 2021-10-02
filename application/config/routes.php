@@ -67,7 +67,7 @@ $route['api/home'] = 'Api/HomeApiController/index';
 $route['api/songs'] = 'Api/SongsApiController/index';
 
 // Song Details page routes
-$route['api/songdetails'] = 'Api/SongDetailApiController/songdetails';
+$route['api/songdetails'] = 'Api/SongsApiController/songdetails';
 
 // login page routes
 $route['api/login'] = 'Api/LoingApiController/index';
